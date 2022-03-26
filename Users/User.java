@@ -1,6 +1,7 @@
 package Users;
 
 public class User extends Being {
+
     // Join to Auction
     public static void Join() {
 

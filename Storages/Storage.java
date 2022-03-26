@@ -7,5 +7,81 @@ public class Storage {
     public static String Description; // Description of Storage
     public static Integer Size; // Size of storage in m2
     public static Boolean Sold; // Check if storage is sold
-    public Integer MinimumPrice; // Minimum price of storage
+    public static Integer MinimumPrice; // Minimum price of storage
+
+    public Storage() {}
+
+    public Storage(String old_owner, String owner, String locked, String description, Integer size, Boolean sold, Integer minimumprice) {
+
+        OldOwner = old_owner;
+        Owner = owner;
+        Locked = locked;
+        Description = description;
+        Size = size;
+        Sold = sold;
+        MinimumPrice = minimumprice;
+    }
+
+    // ?? Setters
+    public void setOldOwner(String oldowner) {
+        OldOwner = oldowner;
+    }
+
+    public void setOwner(String setowner) {
+        Owner = setowner;
+    }
+
+    public void setLocked(String setlocked) {
+        Locked = setlocked;
+    }
+
+    public void setDescription(String setdescription) {
+        Description = setdescription;
+    }
+
+    public void setSize(Integer setsize) {
+        Size = setsize;
+    }
+
+    public void setSold(Boolean setsold) {
+        Sold = setsold;
+    }
+
+    public void setMinimumPrice(Integer minimumprice) {
+        MinimumPrice = minimumprice;
+    }
+
+    // ?? Getters
+    public Integer getMinimumPrice() {
+        return MinimumPrice;
+    }
+
+    public String getOldOwner() {
+        return OldOwner;
+    }
+
+    public String getOwner() {
+        return Owner;
+    }
+
+    public String getLocked() {
+        return Locked;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public Integer getSize() {
+        return Size;
+    }
+
+    public Boolean getSold() {
+        return Sold;
+    }
+
+    public Integer setSold() {
+        return MinimumPrice;
+    }
+
 }
