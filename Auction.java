@@ -1,3 +1,6 @@
+import Users.User;
+import Users.VIPUser;
+
 import java.util.Scanner;
 import java.util.Timer;
 
@@ -14,6 +17,11 @@ class Auction {
     public static int BidValue; // Current Bid
     public static int ALlTimeUsers; // Active users
     public static boolean Active = false; // If auction is rolling now
+
+    // public static boolean Active = false; // If auction is rolling now
+    // public static boolean Active = false; // If auction is rolling now
+    // public static boolean Active = false; // If auction is rolling now
+    // public static boolean Active = false; // If auction is rolling now
 
     // Setup timer
     public static void Timer() {
@@ -128,6 +136,7 @@ class Auction {
         System.out.println("Zadajte prosim meno vyvolavaca");
         name = scanner.next();
 
+        // Todo spravit nejak opravu aby si znova mohol vybrat moznost na vyber a nie nie ukoncit uplne aukciu
         if (id == null || name == null) {
             System.out.println("Something went wrong!");
             System.exit(0);
@@ -142,37 +151,120 @@ class Auction {
         System.out.println("Prosim zvolte si moznost:");
         System.out.println("(1) Zakladne garaze");
         System.out.println("(2) Specialne garaze");
+        System.out.println("(3) Pridat pouzivatela");
+        System.out.println("(4) Pridat VIP pouzivatela");
+        System.out.println("(5) Spustit Aukciu");
 
         option = scanner.nextInt();
 
+        // ?? Basic Garage
         if (option == 1) {
             Garage garage = new Garage();
 
+            System.out.print("Majitel tohto skladu:");
             garage.setOldOwner(scanner.next());
-            garage.setOwner(scanner.next());
-            garage.setLocked(scanner.next());
+
+            // System.out.println(":");
+            // garage.setOwner(scanner.next());
+
+            System.out.println("Prosim zvolte si moznost:");
+            System.out.println("Sklad je zamknuty:");
+            System.out.println("(1) Ano");
+            System.out.println("(2) Nie");
+            int is_locked = scanner.nextInt();
+
+            if (is_locked == 1) {
+                garage.setLocked(true);
+            }
+            else {
+                garage.setLocked(false);
+            }
+
+            System.out.println("Zakladny popis skladu:");
             garage.setDescription(scanner.next());
+
+            System.out.println("Velkost skladu v m3:");
             garage.setSize(scanner.nextInt());
+
             garage.setSold(false);
+
+            System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
             garage.setMinimumPrice(scanner.nextInt());
 
         }
 
+        // ?? Special Garage
         if (option == 2) {
             SpecialGarage special_garage = new SpecialGarage();
 
+            System.out.print("Majitel tohto skladu:");
             special_garage.setOldOwner(scanner.next());
-            special_garage.setOwner(scanner.next());
-            special_garage.setLocked(scanner.next());
+
+            // System.out.print(":");
+            // special_garage.setOwner(scanner.next());
+
+            System.out.println("Prosim zvolte si moznost:");
+            System.out.println("Sklad je zamknuty:");
+            System.out.println("(1) Ano");
+            System.out.println("(2) Nie");
+            int is_locked = scanner.nextInt();
+
+            if (is_locked == 1) {
+                special_garage.setLocked(true);
+            }
+            else {
+                special_garage.setLocked(false);
+            }
+
+            System.out.println("Zakladny popis skladu:");
             special_garage.setDescription(scanner.next());
+
+            System.out.println("Velkost skladu v m3:");
             special_garage.setSize(scanner.nextInt());
+
             special_garage.setSold(false);
+
+            System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
             special_garage.setMinimumPrice(scanner.nextInt());
 
+            System.out.println("Zadajte specialne/vzacne veci, ktore mozno najst v sklade. Tieto hodnoty oddelujte znakom ',':");
             special_garage.setSpecialItems(scanner.next());
+
+            System.out.println("Historia skladu:");
             special_garage.setHistory(scanner.next());
+        }
+
+        if (option == 3) {
+
+            System.out.println("Prosim zadajte ID pouzivatela:");
+            id = scanner.next();
+            System.out.println("Prosim zadajte Meno pouzivatela:");
+            name = scanner.next();
+
+            User user = new User(id, name);
+        }
+
+        if (option == 4) {
+            System.out.println("Prosim zadajte ID pouzivatela:");
+            id = scanner.next();
+            System.out.println("Prosim zadajte Meno pouzivatela:");
+            name = scanner.next();
+
+            VIPUser vipUser = new VIPUser(id, name);
+
+            System.out.println(vipUser.ID);
+            System.out.println(vipUser.Name);
+        }
+
+        if (option == 5) {
 
         }
+
+        // Todo spravit nejak opravu aby si znova mohol vybrat moznost na vyber a nie nie ukoncit uplne aukciu
+        // if (option != 1 || option != 2 || option != 3 || option != 4) {
+        // System.out.println("Zadali ste neplatnu moznost.");
+        // System.exit(0);
+        // }
 
         // Close scanner
         scanner.close();
