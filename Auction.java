@@ -4,7 +4,7 @@ import Storages.Storage;
 
 class Auction {
     public Timer time;
-    public static int NumberOfUser; //All time Numer Of users
+    public static int NumberOfUser; // All time Numer Of users
     public static int Auctions; // How many auction have been executed "today"
     public static int ActiveNumberOfUsers; // How many users are now bidding
     public static int BidValue; // Current Bid
@@ -18,7 +18,7 @@ class Auction {
 
     // Function which save / edit / delete data durring live auction
     public static void ProcessBid(int bid, Storage storage) {
-        if (bid > storage.MinimumPrice){
+        if (bid > storage.MinimumPrice) {
             BidValue = bid;
         }
     }
@@ -42,6 +42,49 @@ class Auction {
 
     // Place where all begins
     public static void main(String[] args) {
+
+        // Print E aukcion
+        System.out.println(
+                "         /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\         ");
+        System.out.println(
+                "        /::\\    \\                /::\\____\\                /::\\____\\                /::\\    \\                /::\\    \\                /::\\    \\        ");
+        System.out.println(
+                "       /::::\\    \\              /:::/    /               /:::/    /               /::::\\    \\               \\:::\\    \\              /::::\\    \\       ");
+        System.out.println(
+                "      /::::::\\    \\            /:::/    /               /:::/    /               /::::::\\    \\               \\:::\\    \\            /::::::\\    \\      ");
+        System.out.println(
+                "     /:::/\\:::\\    \\          /:::/    /               /:::/    /               /:::/\\:::\\    \\               \\:::\\    \\          /:::/\\:::\\    \\     ");
+        System.out.println(
+                "    /:::/__\\:::\\    \\        /:::/    /               /:::/____/               /:::/  \\:::\\    \\               \\:::\\    \\        /:::/__\\:::\\    \\    ");
+        System.out.println(
+                "   /::::\\   \\:::\\    \\      /:::/    /               /::::\\    \\              /:::/    \\:::\\    \\              /::::\\    \\      /::::\\   \\:::\\    \\   ");
+        System.out.println(
+                "  /::::::\\   \\:::\\    \\    /:::/    /      _____    /::::::\\____\\________    /:::/    / \\:::\\    \\    ____    /::::::\\    \\    /::::::\\   \\:::\\    \\  ");
+        System.out.println(
+                " /:::/\\:::\\   \\:::\\    \\  /:::/____/      /\\    \\  /:::/\\:::::::::::\\    \\  /:::/    /   \\:::\\    \\  /\\   \\  /:::/\\:::\\    \\  /:::/\\:::\\   \\:::\\    \\ ");
+        System.out.println(
+                "/:::/  \\:::\\   \\:::\\____\\|:::|    /      /::\\____\\/:::/  |:::::::::::\\____\\/:::/____/     \\:::\\____\\/::\\   \\/:::/  \\:::\\____\\/:::/  \\:::\\   \\:::\\____\\");
+        System.out.println(
+                "\\::/    \\:::\\  /:::/    /|:::|____\\     /:::/    /\\::/   |::|~~~|~~~~~     \\:::\\    \\      \\::/    /\\:::\\  /:::/    \\::/    /\\::/    \\:::\\  /:::/    /");
+        System.out.println(
+                " \\/____/ \\:::\\/:::/    /  \\:::\\    \\   /:::/    /  \\/____|::|   |           \\:::\\    \\      \\/____/  \\:::\\/:::/    / \\/____/  \\/____/ \\:::\\/:::/    / ");
+        System.out.println(
+                "          \\::::::/    /    \\:::\\    \\ /:::/    /         |::|   |            \\:::\\    \\               \\::::::/    /                    \\::::::/    /  ");
+        System.out.println(
+                "           \\::::/    /      \\:::\\    /:::/    /          |::|   |             \\:::\\    \\               \\::::/____/                      \\::::/    /   ");
+        System.out.println(
+                "           /:::/    /        \\:::\\__/:::/    /           |::|   |              \\:::\\    \\               \\:::\\    \\                      /:::/    /    ");
+        System.out.println(
+                "          /:::/    /          \\::::::::/    /            |::|   |               \\:::\\    \\               \\:::\\    \\                    /:::/    /     ");
+        System.out.println(
+                "         /:::/    /            \\::::::/    /             |::|   |                \\:::\\    \\               \\:::\\    \\                  /:::/    /      ");
+        System.out.println(
+                "        /:::/    /              \\::::/    /              \\::|   |                 \\:::\\____\\               \\:::\\____\\                /:::/    /       ");
+        System.out.println(
+                "        \\::/    /                \\::/____/                \\:|   |                  \\::/    /                \\::/    /                \\::/    /        ");
+        System.out.println(
+                "         \\/____/                  ~~                       \\|___|                   \\/____/                  \\/____/                  \\/____/         ");
+
         System.out.println("Prihlásenie ");
     }
 
