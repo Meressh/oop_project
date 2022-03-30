@@ -1,6 +1,6 @@
 package Storages;
 
-public class Storage {
+class Storage {
     public static String OldOwner; // Old Owner -> but not current owner
     public static String Owner; // Current Owner
     public static Boolean Locked; // If is Locked or Not

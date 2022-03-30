@@ -109,9 +109,12 @@ public class Caller extends Being {
     }
 
     public SpecialGarage AddSpecialGarage() {
+
+        // ??Inicialize
         Scanner scanner = new Scanner(System.in);
         SpecialGarage special_garage = new SpecialGarage();
 
+        // ??Who will not be and is owner of this storage
         System.out.print("Majitel tohto skladu:");
         special_garage.setOldOwner(scanner.next());
 
@@ -119,6 +122,7 @@ public class Caller extends Being {
         // special_garage.setOwner(scanner.next());
 
         System.out.println("Prosim zvolte si moznost:");
+        // ??Check if storage is locked or not
         System.out.println("Sklad je zamknuty:");
         System.out.println("(1) Ano");
         System.out.println("(2) Nie");
@@ -131,20 +135,38 @@ public class Caller extends Being {
             special_garage.setLocked(false);
         }
 
+        // ??Add basic description of storage
         System.out.println("Zakladny popis skladu:");
         special_garage.setDescription(scanner.next());
 
+        // ??Add Size of storage
         System.out.println("Velkost skladu v m3:");
         special_garage.setSize(scanner.nextInt());
 
+        // ??Set sold to false
         special_garage.setSold(false);
 
+        // ??Set beginning price for storage
         System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
         special_garage.setMinimumPrice(scanner.nextInt());
 
-        System.out.println("Zadajte specialne/vzacne veci, ktore mozno najst v sklade. Tieto hodnoty oddelujte znakom ',':");
-        special_garage.setSpecialItems(scanner.next());
+        // ??Add Special Items
+        System.out.println("Zadajte specialne/vzacne predmety, ktore mozno najst v sklade. Pridávanie Specialnych predmetov ukoncite znakom 0:");
 
+        String input = "0";
+        String input_price = "0";
+        do {
+            System.out.println("Prosim vlozte nazov specialneho predmetu:");
+            input = scanner.next();
+            System.out.println("Prosim vlozte pribliznu hodnotu specialneho predmetu:");
+            input_price = scanner.next();
+
+            if (input != "0") {
+                special_garage.setSpecialItems(input, input_price);
+            }
+        } while (input != "0");
+
+        // ??Add History of storage
         System.out.println("Historia skladu:");
         special_garage.setHistory(scanner.next());
 
