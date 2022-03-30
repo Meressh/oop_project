@@ -20,4 +20,7 @@ public class Being {
         return ID;
     }
 
+    // class Storages(){
+
+    // }
 }

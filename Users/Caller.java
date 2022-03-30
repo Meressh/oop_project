@@ -16,6 +16,16 @@ public class Caller extends Being {
         super(id, name);
     }
 
+    @Override
+    // polymorfism
+    public String getName() {
+        return "Meno Vyvolavaca je " + Name;
+    }
+
+    public String getID() {
+        return "Meno Vyvolavaca je " + ID;
+    }
+
     // Start Auction
     public static void StartAuction() {
         // Auction = new Auction;

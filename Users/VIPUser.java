@@ -12,4 +12,14 @@ public class VIPUser extends User {
     public static void AddMoreTime() {
 
     }
+
+    @Override
+    // polymorfism
+    public String getName() {
+        return "*****| Meno VIP Usera je " + Name + " |*****";
+    }
+
+    public String getID() {
+        return "*****| Meno VIP Usera je " + ID + " |*****";
+    }
 }
