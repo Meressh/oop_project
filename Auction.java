@@ -48,8 +48,6 @@ class Auction {
                 }
         }
 
-        Caller caller = new Caller();
-
         // Place where all begins
         public static void main(String[] args) {
 
@@ -77,6 +75,8 @@ class Auction {
                         System.out.println("Zadali ste neplatnu moznost.");
                         System.exit(0);
                 }
+
+                // Add Caller
                 System.out.println("Zadajte prosim ID vyvolavaca");
                 id = scanner.next();
                 System.out.println("Zadajte prosim meno vyvolavaca");
@@ -88,6 +88,9 @@ class Auction {
                         System.exit(0);
                 }
 
+                Caller caller = new Caller(id, name);
+
+                System.out.println(caller.getName());
                 System.out.println("Vyvolavac uspesne registrovany!");
 
                 // !! Add some storages which will be sold -> iny sposob pridavania ako pri pridavani Vyvolavaca/Caller -> getters/setters
@@ -100,11 +103,14 @@ class Auction {
                 System.out.println("(4) Pridat VIP pouzivatela");
                 System.out.println("(5) Spustit Aukciu");
 
+                // Stats from all period when application was running
+                System.out.println("(0) Ukoncit aukciu a vypisat statistiky dna");
+
                 option = scanner.nextInt();
 
                 // ?? Basic Garage
                 if (option == 1) {
-                        Garages.add(ActiveNumberOfStorages, Caller.AddGarage());
+                        Garages.add(ActiveNumberOfStorages, caller.AddGarage());
 
                         ActiveNumberOfStorages++;
                         ALlTimeStorages++;
@@ -112,7 +118,7 @@ class Auction {
 
                 // ?? Special Garage
                 if (option == 2) {
-                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, Caller.AddSpecialGarage());
+                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
 
                         ActiveNumberOfStoragesSpecial++;
                         ALlTimeStoragesSpecial++;
@@ -120,7 +126,7 @@ class Auction {
 
                 // ?? User
                 if (option == 3) {
-                        Users.add(ActiveNumberOfUsers, Caller.AddUser());
+                        Users.add(ActiveNumberOfUsers, caller.AddUser());
 
                         ActiveNumberOfUsers++;
                         ALlTimeUsers++;
@@ -128,7 +134,7 @@ class Auction {
 
                 // ?? VIPUser
                 if (option == 4) {
-                        VIPUsers.add(ActiveNumberOfVIPUsers, Caller.AddVIPUser());
+                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
 
                         ActiveNumberOfVIPUsers++;
                         ALlTimeVIPUsers++;

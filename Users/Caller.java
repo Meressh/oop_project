@@ -27,21 +27,21 @@ public class Caller extends Being {
     }
 
     // Start Auction
-    public static void StartAuction() {
+    public void StartAuction() {
         // Auction = new Auction;
     }
 
     // Setup Timer
-    public static void SetupTimer() {
+    public void SetupTimer() {
 
     }
 
     // End Timer
-    public static void EndTimer() {
+    public void EndTimer() {
 
     }
 
-    public static User AddUser() {
+    public User AddUser() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Prosim zadajte ID pouzivatela:");
@@ -55,7 +55,7 @@ public class Caller extends Being {
         return user;
     }
 
-    public static VIPUser AddVIPUser() {
+    public VIPUser AddVIPUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Prosim zadajte ID VIP pouzivatela:");
         data_id = scanner.next();
@@ -69,7 +69,7 @@ public class Caller extends Being {
 
     }
 
-    public static Garage AddGarage() {
+    public Garage AddGarage() {
         Scanner scanner = new Scanner(System.in);
 
         Garage garage = new Garage();
@@ -108,7 +108,7 @@ public class Caller extends Being {
         return garage;
     }
 
-    public static SpecialGarage AddSpecialGarage() {
+    public SpecialGarage AddSpecialGarage() {
         Scanner scanner = new Scanner(System.in);
         SpecialGarage special_garage = new SpecialGarage();
 
