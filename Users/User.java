@@ -8,10 +8,10 @@ public class User extends Being {
         super(id, name);
     }
 
-    // Join to Auction
-    public static void Join() {
+    // // Join to Auction
+    // public static void Join() {
 
-    }
+    // }
 
     // Leave Auction
     public static void End() {

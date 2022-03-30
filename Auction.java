@@ -3,6 +3,9 @@ import Users.VIPUser;
 
 import java.util.Scanner;
 import java.util.Timer;
+
+import GUI.Gui;
+
 import java.util.ArrayList;
 
 import Storages.Garage;
@@ -28,10 +31,10 @@ class Auction {
         public static int BidValue; // Current Bid
         public static boolean Active = false; // If auction is rolling now
 
-        static ArrayList<User> Users = new ArrayList<User>(); // Create ArrayList for store Users which are added to auction
-        static ArrayList<VIPUser> VIPUsers = new ArrayList<VIPUser>(); // Create ArrayList for store VIPusers which are added to auction
-        static ArrayList<Garage> Garages = new ArrayList<Garage>(); // Create ArrayList for store Garages which are added to auction
-        static ArrayList<SpecialGarage> SpecialGarages = new ArrayList<SpecialGarage>(); // Create ArrayList for store SpecialGarages which are added to auction
+        public static ArrayList<User> Users = new ArrayList<User>(); // Create ArrayList for store Users which are added to auction
+        public static ArrayList<VIPUser> VIPUsers = new ArrayList<VIPUser>(); // Create ArrayList for store VIPusers which are added to auction
+        public static ArrayList<Garage> Garages = new ArrayList<Garage>(); // Create ArrayList for store Garages which are added to auction
+        public static ArrayList<SpecialGarage> SpecialGarages = new ArrayList<SpecialGarage>(); // Create ArrayList for store SpecialGarages which are added to auction
 
         // Setup timer
         public static void Timer() {
@@ -45,78 +48,13 @@ class Auction {
                 }
         }
 
-        // Will add user to auction
-        public static void AddUser() {
-                ActiveNumberOfUsers++;
-        }
-
         Caller caller = new Caller();
 
         // Place where all begins
         public static void main(String[] args) {
 
                 // Print E-Aukcion in ASCII art
-                System.out.println(
-                                "         /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\         ");
-                System.out.println(
-                                "        /::\\    \\                /::\\____\\                /::\\____\\                /::\\    \\                /::\\    \\                /::\\    \\        ");
-                System.out.println(
-                                "       /::::\\    \\              /:::/    /               /:::/    /               /::::\\    \\               \\:::\\    \\              /::::\\    \\       ");
-                System.out.println(
-                                "      /::::::\\    \\            /:::/    /               /:::/    /               /::::::\\    \\               \\:::\\    \\            /::::::\\    \\      ");
-                System.out.println(
-                                "     /:::/\\:::\\    \\          /:::/    /               /:::/    /               /:::/\\:::\\    \\               \\:::\\    \\          /:::/\\:::\\    \\     ");
-                System.out.println(
-                                "    /:::/__\\:::\\    \\        /:::/    /               /:::/____/               /:::/  \\:::\\    \\               \\:::\\    \\        /:::/__\\:::\\    \\    ");
-                System.out.println(
-                                "   /::::\\   \\:::\\    \\      /:::/    /               /::::\\    \\              /:::/    \\:::\\    \\              /::::\\    \\      /::::\\   \\:::\\    \\   ");
-                System.out.println(
-                                "  /::::::\\   \\:::\\    \\    /:::/    /      _____    /::::::\\____\\________    /:::/    / \\:::\\    \\    ____    /::::::\\    \\    /::::::\\   \\:::\\    \\  ");
-                System.out.println(
-                                " /:::/\\:::\\   \\:::\\    \\  /:::/____/      /\\    \\  /:::/\\:::::::::::\\    \\  /:::/    /   \\:::\\    \\  /\\   \\  /:::/\\:::\\    \\  /:::/\\:::\\   \\:::\\    \\ ");
-                System.out.println(
-                                "/:::/  \\:::\\   \\:::\\____\\|:::|    /      /::\\____\\/:::/  |:::::::::::\\____\\/:::/____/     \\:::\\____\\/::\\   \\/:::/  \\:::\\____\\/:::/  \\:::\\   \\:::\\____\\");
-                System.out.println(
-                                "\\::/    \\:::\\  /:::/    /|:::|____\\     /:::/    /\\::/   |::|~~~|~~~~~     \\:::\\    \\      \\::/    /\\:::\\  /:::/    \\::/    /\\::/    \\:::\\  /:::/    /");
-                System.out.println(
-                                " \\/____/ \\:::\\/:::/    /  \\:::\\    \\   /:::/    /  \\/____|::|   |           \\:::\\    \\      \\/____/  \\:::\\/:::/    / \\/____/  \\/____/ \\:::\\/:::/    / ");
-                System.out.println(
-                                "          \\::::::/    /    \\:::\\    \\ /:::/    /         |::|   |            \\:::\\    \\               \\::::::/    /                    \\::::::/    /  ");
-                System.out.println(
-                                "           \\::::/    /      \\:::\\    /:::/    /          |::|   |             \\:::\\    \\               \\::::/____/                      \\::::/    /   ");
-                System.out.println(
-                                "           /:::/    /        \\:::\\__/:::/    /           |::|   |              \\:::\\    \\               \\:::\\    \\                      /:::/    /    ");
-                System.out.println(
-                                "          /:::/    /          \\::::::::/    /            |::|   |               \\:::\\    \\               \\:::\\    \\                    /:::/    /     ");
-                System.out.println(
-                                "         /:::/    /            \\::::::/    /             |::|   |                \\:::\\    \\               \\:::\\    \\                  /:::/    /      ");
-                System.out.println(
-                                "        /:::/    /              \\::::/    /              \\::|   |                 \\:::\\____\\               \\:::\\____\\                /:::/    /       ");
-                System.out.println(
-                                "        \\::/    /                \\::/____/                \\:|   |                  \\::/    /                \\::/    /                \\::/    /        ");
-                System.out.println(
-                                "         \\/____/                  ~~                       \\|___|                   \\/____/                  \\/____/                  \\/____/         ");
-
-                // Print Zabudnutych skladov in ASCII Art
-                System.out.println(
-                                " _______ _______ ______          ______  _              _________        _______            _______ _       _       _______ ______  _______         ");
-                System.out.println(
-                                "/ ___   (  ___  (  ___ \\|\\     /(  __  \\( (    /|\\     /\\__   __|\\     /(  ____ |\\     /|  (  ____ | \\    /( \\     (  ___  (  __  \\(  ___  |\\     /|");
-                System.out.println(
-                                "\\/   )  | (   ) | (   ) | )   ( | (  \\  |  \\  ( | )   ( |  ) (  ( \\   / | (    \\| )   ( |  | (    \\|  \\  / | (     | (   ) | (  \\  | (   ) | )   ( |");
-                System.out.println(
-                                "    /   | (___) | (__/ /| |   | | |   ) |   \\ | | |   | |  | |   \\ (_) /| |     | (___) |  | (_____|  (_/ /| |     | (___) | |   ) | |   | | |   | |");
-                System.out.println(
-                                "   /   /|  ___  |  __ ( | |   | | |   | | (\\ \\) | |   | |  | |    \\   / | |     |  ___  |  (_____  |   _ ( | |     |  ___  | |   | | |   | ( (   ) )");
-                System.out.println(
-                                "  /   / | (   ) | (  \\ \\| |   | | |   ) | | \\   | |   | |  | |     ) (  | |     | (   ) |        ) |  ( \\ \\| |     | (   ) | |   ) | |   | |\\ \\_/ / ");
-                System.out.println(
-                                " /   (_/| )   ( | )___) | (___) | (__/  | )  \\  | (___) |  | |     | |  | (____/| )   ( |  /\\____) |  /  \\ | (____/| )   ( | (__/  | (___) | \\   /  ");
-                System.out.println(
-                                "(_______|/     \\|/ \\___/(_______(______/|/    )_(_______)  )_(     \\_/  (_______|/     \\|  \\_______|_/    \\(_______|/     \\(______/(_______)  \\_/   ");
-
-                System.out.println("\n");
-                System.out.println("\n");
+                Gui.banner();
 
                 // !! Start E-Auction and Add caller
                 // Start scenner
@@ -166,39 +104,7 @@ class Auction {
 
                 // ?? Basic Garage
                 if (option == 1) {
-                        Garage garage = new Garage();
-
-                        System.out.print("Majitel tohto skladu:");
-                        garage.setOldOwner(scanner.next());
-
-                        // System.out.println(":");
-                        // garage.setOwner(scanner.next());
-
-                        System.out.println("Prosim zvolte si moznost:");
-                        System.out.println("Sklad je zamknuty:");
-                        System.out.println("(1) Ano");
-                        System.out.println("(2) Nie");
-                        int is_locked = scanner.nextInt();
-
-                        if (is_locked == 1) {
-                                garage.setLocked(true);
-                        }
-                        else {
-                                garage.setLocked(false);
-                        }
-
-                        System.out.println("Zakladny popis skladu:");
-                        garage.setDescription(scanner.next());
-
-                        System.out.println("Velkost skladu v m3:");
-                        garage.setSize(scanner.nextInt());
-
-                        garage.setSold(false);
-
-                        System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
-                        garage.setMinimumPrice(scanner.nextInt());
-
-                        Garages.set(ActiveNumberOfStorages, garage);
+                        Garages.add(ActiveNumberOfStorages, Caller.AddGarage());
 
                         ActiveNumberOfStorages++;
                         ALlTimeStorages++;
@@ -206,76 +112,23 @@ class Auction {
 
                 // ?? Special Garage
                 if (option == 2) {
-                        SpecialGarage special_garage = new SpecialGarage();
-
-                        System.out.print("Majitel tohto skladu:");
-                        special_garage.setOldOwner(scanner.next());
-
-                        // System.out.print(":");
-                        // special_garage.setOwner(scanner.next());
-
-                        System.out.println("Prosim zvolte si moznost:");
-                        System.out.println("Sklad je zamknuty:");
-                        System.out.println("(1) Ano");
-                        System.out.println("(2) Nie");
-                        int is_locked = scanner.nextInt();
-
-                        if (is_locked == 1) {
-                                special_garage.setLocked(true);
-                        }
-                        else {
-                                special_garage.setLocked(false);
-                        }
-
-                        System.out.println("Zakladny popis skladu:");
-                        special_garage.setDescription(scanner.next());
-
-                        System.out.println("Velkost skladu v m3:");
-                        special_garage.setSize(scanner.nextInt());
-
-                        special_garage.setSold(false);
-
-                        System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
-                        special_garage.setMinimumPrice(scanner.nextInt());
-
-                        System.out.println("Zadajte specialne/vzacne veci, ktore mozno najst v sklade. Tieto hodnoty oddelujte znakom ',':");
-                        special_garage.setSpecialItems(scanner.next());
-
-                        System.out.println("Historia skladu:");
-                        special_garage.setHistory(scanner.next());
-
-                        SpecialGarages.set(ActiveNumberOfStoragesSpecial, special_garage);
+                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, Caller.AddSpecialGarage());
 
                         ActiveNumberOfStoragesSpecial++;
                         ALlTimeStoragesSpecial++;
                 }
 
+                // ?? User
                 if (option == 3) {
+                        Users.add(ActiveNumberOfUsers, Caller.AddUser());
 
-                        System.out.println("Prosim zadajte ID pouzivatela:");
-                        id = scanner.next();
-                        System.out.println("Prosim zadajte Meno pouzivatela:");
-                        name = scanner.next();
-
-                        User user = new User(id, name);
-
-                        Users.set(ActiveNumberOfUsers, user);
                         ActiveNumberOfUsers++;
                         ALlTimeUsers++;
                 }
 
+                // ?? VIPUser
                 if (option == 4) {
-                        System.out.println("Prosim zadajte ID VIP pouzivatela:");
-                        id = scanner.next();
-                        System.out.println("Prosim zadajte Meno VIP pouzivatela:");
-                        name = scanner.next();
-
-                        VIPUser vipUser = new VIPUser(id, name);
-
-                        System.out.println(vipUser.ID);
-                        System.out.println(vipUser.Name);
-
-                        VIPUsers.set(ActiveNumberOfVIPUsers, vipUser);
+                        VIPUsers.add(ActiveNumberOfVIPUsers, Caller.AddVIPUser());
 
                         ActiveNumberOfVIPUsers++;
                         ALlTimeVIPUsers++;
