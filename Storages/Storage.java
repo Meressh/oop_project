@@ -1,7 +1,9 @@
 package Storages;
 
-class Storage {
+public class Storage {
+    // !! zmenit staticke
     public static String OldOwner; // Old Owner -> but not current owner
+    public static String Name; // Old Owner -> but not current owner
     public static String Owner; // Current Owner
     public static Boolean Locked; // If is Locked or Not
     public static String Description; // Description of Storage
@@ -82,6 +84,10 @@ class Storage {
 
     public Integer setSold() {
         return MinimumPrice;
+    }
+
+    public String getName() {
+        return Name;
     }
 
 }
