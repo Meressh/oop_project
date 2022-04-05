@@ -25,8 +25,8 @@ class Auction {
         public static int ALlTimeUsers = 0; // All time users
         public static int ALlTimeVIPUsers = 0; // All time users
 
-        public static int ALlTimeStorages = 0; // All time Garages
-        public static int ALlTimeStoragesSpecial = 0; // All time Special Garages
+        public static int AllTimeStorages = 0; // All time Garages
+        public static int AllTimeStoragesSpecial = 0; // All time Special Garages
 
         public static int BidValue; // Current Bid
         public static boolean Active = false; // If auction is rolling now
@@ -96,53 +96,53 @@ class Auction {
                 // !! Add some storages which will be sold -> iny sposob pridavania ako pri pridavani Vyvolavaca/Caller -> getters/setters
                 System.out.println("Pridajte sklady na predaj!");
 
-                System.out.println("Prosim zvolte si moznost:");
-                System.out.println("(1) Zakladne garaze");
-                System.out.println("(2) Specialne garaze");
-                System.out.println("(3) Pridat pouzivatela");
-                System.out.println("(4) Pridat VIP pouzivatela");
-                System.out.println("(5) Spustit Aukciu");
+                do {
 
-                // Stats from all period when application was running
-                System.out.println("(0) Ukoncit aukciu a vypisat statistiky dna");
+                        System.out.println("Prosim zvolte si moznost:");
+                        System.out.println("(1) Zakladne garaze");
+                        System.out.println("(2) Specialne garaze");
+                        System.out.println("(3) Pridat pouzivatela");
+                        System.out.println("(4) Pridat VIP pouzivatela");
+                        System.out.println("(5) Spustit Aukciu");
 
-                option = scanner.nextInt();
+                        // Stats from all period when application was running
+                        System.out.println("(0) Ukoncit aukciu a vypisat statistiky dna");
 
-                // ?? Basic Garage
-                if (option == 1) {
-                        Garages.add(ActiveNumberOfStorages, caller.AddGarage());
+                        option = scanner.nextInt();
+                        scanner.next();
 
-                        ActiveNumberOfStorages++;
-                        ALlTimeStorages++;
-                }
+                        // ?? Basic Garage
+                        if (option == 1) {
+                                Garages.add(ActiveNumberOfStorages, caller.AddGarage());
 
-                // ?? Special Garage
-                if (option == 2) {
-                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
+                                ActiveNumberOfStorages++;
+                                AllTimeStorages++;
+                        }
 
-                        ActiveNumberOfStoragesSpecial++;
-                        ALlTimeStoragesSpecial++;
-                }
+                        // ?? Special Garage
+                        if (option == 2) {
+                                SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
 
-                // ?? User
-                if (option == 3) {
-                        Users.add(ActiveNumberOfUsers, caller.AddUser());
+                                ActiveNumberOfStoragesSpecial++;
+                                AllTimeStoragesSpecial++;
+                        }
 
-                        ActiveNumberOfUsers++;
-                        ALlTimeUsers++;
-                }
+                        // ?? User
+                        if (option == 3) {
+                                Users.add(ActiveNumberOfUsers, caller.AddUser());
 
-                // ?? VIPUser
-                if (option == 4) {
-                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
+                                ActiveNumberOfUsers++;
+                                ALlTimeUsers++;
+                        }
 
-                        ActiveNumberOfVIPUsers++;
-                        ALlTimeVIPUsers++;
-                }
+                        // ?? VIPUser
+                        if (option == 4) {
+                                VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
 
-                if (option == 5) {
-
-                }
+                                ActiveNumberOfVIPUsers++;
+                                ALlTimeVIPUsers++;
+                        }
+                } while (option != 5);
 
                 // Todo spravit nejak opravu aby si znova mohol vybrat moznost na vyber a nie nie ukoncit uplne aukciu
                 // if (option != 1 || option != 2 || option != 3 || option != 4) {
