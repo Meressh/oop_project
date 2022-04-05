@@ -9,20 +9,20 @@ public class SpecialGarage extends Garage {
     // public SpecialGarage(String OldOwner, String Owner, String Locked, String Description, Integer Size, Boolean Sold, Integer MinimumPrice) {
     // super(OldOwner, Owner, Locked, Description, Size, Sold, MinimumPrice);
     // }
-    protected void setSpecialItems(String specialitems) {
+    public void setSpecialItems(String specialitems) {
 
         SpecialItems = specialitems.split(",");
     }
 
-    protected void setHistory(String history) {
+    public void setHistory(String history) {
         History = history;
     }
 
-    protected String[] getSpecialItems() {
+    public String[] getSpecialItems() {
         return SpecialItems;
     }
 
-    protected String getHistory() {
+    public String getHistory() {
         return History;
     }
 }

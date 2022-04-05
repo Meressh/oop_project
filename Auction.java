@@ -28,7 +28,6 @@ class Auction {
         public static int AllTimeStorages = 0; // All time Garages
         public static int AllTimeStoragesSpecial = 0; // All time Special Garages
 
-        public static int BidValue; // Current Bid
         public static boolean Active = false; // If auction is rolling now
 
         public static ArrayList<User> Users = new ArrayList<User>(); // Create ArrayList for store Users which are added to auction
@@ -62,16 +61,16 @@ class Auction {
 
                 Scanner scanner = new Scanner(System.in);
 
-                int option = scanner.nextInt();
+                String option = scanner.nextLine();
 
                 String id = null;
                 String name = null;
 
-                if (option == 2) {
+                if (option.equals("2")) {
                         System.exit(0);
                 }
 
-                if (option != 1) {
+                if (!option.equals("1")) {
                         System.out.println("Zadali ste neplatnu moznost.");
                         System.exit(0);
                 }
@@ -93,10 +92,11 @@ class Auction {
                 System.out.println(caller.getName());
                 System.out.println("Vyvolavac uspesne registrovany!");
 
-                // !! Add some storages which will be sold -> iny sposob pridavania ako pri pridavani Vyvolavaca/Caller -> getters/setters
+                // ?? Add some storages which will be sold -> iny sposob pridavania ako pri pridavani Vyvolavaca/Caller -> getters/setters
                 System.out.println("Pridajte sklady na predaj!");
 
                 do {
+                        Scanner scanner_while = new Scanner(System.in);
 
                         System.out.println("Prosim zvolte si moznost:");
                         System.out.println("(1) Zakladne garaze");
@@ -108,11 +108,10 @@ class Auction {
                         // Stats from all period when application was running
                         System.out.println("(0) Ukoncit aukciu a vypisat statistiky dna");
 
-                        option = scanner.nextInt();
-                        scanner.next();
+                        option = scanner_while.nextLine();
 
                         // ?? Basic Garage
-                        if (option == 1) {
+                        if (option.equals("1")) {
                                 Garages.add(ActiveNumberOfStorages, caller.AddGarage());
 
                                 ActiveNumberOfStorages++;
@@ -120,7 +119,7 @@ class Auction {
                         }
 
                         // ?? Special Garage
-                        if (option == 2) {
+                        if (option.equals("2")) {
                                 SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
 
                                 ActiveNumberOfStoragesSpecial++;
@@ -128,7 +127,7 @@ class Auction {
                         }
 
                         // ?? User
-                        if (option == 3) {
+                        if (option.equals("3")) {
                                 Users.add(ActiveNumberOfUsers, caller.AddUser());
 
                                 ActiveNumberOfUsers++;
@@ -136,19 +135,45 @@ class Auction {
                         }
 
                         // ?? VIPUser
-                        if (option == 4) {
+                        if (option.equals("4")) {
                                 VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
 
                                 ActiveNumberOfVIPUsers++;
                                 ALlTimeVIPUsers++;
                         }
-                } while (option != 5);
 
-                // Todo spravit nejak opravu aby si znova mohol vybrat moznost na vyber a nie nie ukoncit uplne aukciu
-                // if (option != 1 || option != 2 || option != 3 || option != 4) {
-                // System.out.println("Zadali ste neplatnu moznost.");
-                // System.exit(0);
-                // }
+                        if (option.equals("0")) {
+                                System.out.println("Koniec aukčného dňa!");
+
+                                // ?? Print stats
+                                System.out.println("Statistiky dňa:");
+                                // Todo vypisat statistiky dna !
+                                System.exit(0);
+                        }
+
+                        scanner_while.close();
+
+                } while (!option.equals("5"));
+
+                // ?? Start timer
+                Timer();
+
+                // ?? Start Auction
+                Active = true;
+                Auctions++;
+
+                for (int i = 0; i < Garages.size(); i++) {
+                        System.out.println("Nazov skladu je " + Garages.get(i).getName());
+                        System.out.println("Minimalna cena skladu je " + Garages.get(i).getMinimumPrice());
+                        System.out.println("Predchadzajúci majiteľ skladu je " + Garages.get(i).getOldOwner());
+                        System.out.println("Majiteľ skladu je " + Garages.get(i).getOwner());
+                        System.out.println("Sklad je zamknutý" + Garages.get(i).getLocked());
+                        System.out.println("Popis skladu" + Garages.get(i).getDescription());
+                        System.out.println("Rozmery skladu su " + Garages.get(i).getSize());
+                        System.out.println("Sklad je predaný" + Garages.get(i).getSold());
+
+                        // System.out.println("Minimalna cena skladu je " + Garages.get(i).getPrice());
+                }
 
                 // Close scanner
                 scanner.close();

@@ -2,14 +2,15 @@ package Storages;
 
 public class Storage {
     // !! zmenit staticke
-    protected static String OldOwner; // Old Owner -> but not current owner
-    protected static String Name; // Old Owner -> but not current owner
-    protected static String Owner; // Current Owner
-    protected static Boolean Locked; // If is Locked or Not
-    protected static String Description; // Description of Storage
-    protected static Integer Size; // Size of storage in m2
-    protected static Boolean Sold; // Check if storage is sold
-    protected static Integer MinimumPrice; // Minimum price of storage
+    private static String OldOwner; // Old Owner -> but not current owner
+    private static String Name; // Old Owner -> but not current owner
+    private static String Owner; // Current Owner
+    private static Boolean Locked; // If is Locked or Not
+    private static String Description; // Description of Storage
+    private static Integer Size; // Size of storage in m2
+    private static Boolean Sold; // Check if storage is sold
+    private static Integer MinimumPrice; // Minimum price of storage
+    private static Integer price; // Current price of storage
 
     public Storage() {}
 
@@ -53,6 +54,10 @@ public class Storage {
         MinimumPrice = minimumprice;
     }
 
+    public void setPrice(Integer Price) {
+        price = Price;
+    }
+
     // ?? Getters
     public Integer getMinimumPrice() {
         return MinimumPrice;
@@ -88,6 +93,10 @@ public class Storage {
 
     public String getName() {
         return Name;
+    }
+
+    public Integer getPrice() {
+        return price;
     }
 
 }
