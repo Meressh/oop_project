@@ -33,7 +33,14 @@ public class Caller extends Being {
 
     // Setup Timer
     public void SetupTimer() {
-
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        // your code here
+                    }
+                },
+                5000);
     }
 
     // End Timer

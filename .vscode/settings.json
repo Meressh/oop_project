@@ -9,6 +9,14 @@
         "/Library/Java/javafx-sdk-17.0.2/lib/javafx.fxml.jar",
         "/Library/Java/javafx-sdk-17.0.2/lib/javafx.graphics.jar",
         "/Library/Java/javafx-sdk-17.0.2/lib/javafx.swing.jar",
-        "/Library/Java/javafx-sdk-17.0.2/lib/javafx.web.jar"
+        "/Library/Java/javafx-sdk-17.0.2/lib/javafx.web.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.base.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.controls.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.fxml.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.graphics.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.media.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.swing.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx.web.jar",
+        "/home/marek/javafx-sdk-18/lib/javafx-swt.jar"
     ]
 }
