@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.Timer;
 
 import GUI.Gui;
+import GUI.Gui_Design;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,6 @@ import Storages.Garage;
 import Storages.SpecialGarage;
 import Storages.Storage;
 import Users.Caller;
-
 class Auction {
         public Timer time;
         public static int Auctions; // How many auction have been executed "today"
@@ -52,7 +52,8 @@ class Auction {
         public static void main(String[] args) {
 
                 // Print E-Aukcion in ASCII art
-                Gui.banner();
+                // Gui_Design gui_design = new Gui_Design();
+                // Gui_Design.main();
 
                 // !! Start E-Auction and Add caller
                 // Start scenner
@@ -153,5 +154,4 @@ class Auction {
                 // Close scanner
                 scanner.close();
         }
-
 }
