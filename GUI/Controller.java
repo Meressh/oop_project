@@ -111,7 +111,7 @@ public class Controller {
         
         
         // Caller
-        public Caller caller;
+        public static Caller caller;
         public Timer time;
         
         public static int Auctions; // How many auction have been executed "today"
@@ -197,7 +197,6 @@ public class Controller {
                                                 
                                                 if(!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()){
                                                         caller = new Caller(temp_caller_id.getText(), temp_caller_name.getText());
-
                                                         // Switch to dashboard
                                                         switchToCallerDashboard();
                                                 }
@@ -258,13 +257,11 @@ public class Controller {
                                                 if (temp_garage_owner.getText().isEmpty()) {
                                                         GarageAddError.setText("Please enter a valid User Name");
                                                 }
-                                                
                                                 if (temp_garage_size.getText().isEmpty()) {
                                                         GarageAddError.setText("Please enter a size");
                                                 }
-
                                                 if (temp_garage_is_locked.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please check the box if si locked or not");
+                                                        GarageAddError.setText("Please check the box if is locked or not");
                                                 }
                                                 if (temp_garage_minimum_price.getText().isEmpty()) {
                                                         GarageAddError.setText("Please enter a minimum price for the garage");
@@ -272,7 +269,6 @@ public class Controller {
                                                 if (temp_garage_description.getText().isEmpty()) {
                                                         GarageAddError.setText("Please enter a description for the garage");
                                                 }
-                                                
                                                 if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
                                                         Garages.add(ActiveNumberOfStorages, caller.AddGarage());
                                                         

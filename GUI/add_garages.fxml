@@ -30,7 +30,7 @@
       <Text layoutX="415.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage size" />
       <Text layoutX="636.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum price in Auction" />
       <Button fx:id="loginCaller" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Back" />
-      <TextField fx:id="GarageAddError" layoutX="197.0" layoutY="82.0" prefHeight="22.0" prefWidth="290.0" />
+      <TextField fx:id="GarageAddError" layoutX="197.0" layoutY="82.0" prefHeight="22.0" prefWidth="501.0" />
       <TextField id="temp_caller_id" fx:id="temp_garage_owner" layoutX="196.0" layoutY="120.0" styleClass="text-field" stylesheets="@master.css" />
       <Text layoutX="196.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Owner" />
       <Text layoutX="196.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Locked" />
