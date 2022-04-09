@@ -4,8 +4,7 @@ import Users.VIPUser;
 import java.util.Scanner;
 import java.util.Timer;
 
-import GUI.Gui;
-import GUI.Gui_Design;
+import GUI.App;
 
 import java.util.ArrayList;
 
@@ -13,6 +12,8 @@ import Storages.Garage;
 import Storages.SpecialGarage;
 import Storages.Storage;
 import Users.Caller;
+import javafx.stage.Stage;
+
 class Auction {
         public Timer time;
         public static int Auctions; // How many auction have been executed "today"
@@ -49,10 +50,10 @@ class Auction {
 
         // Place where all begins
         public static void main(String[] args) {
-
+                
                 // Print E-Aukcion in ASCII art
                 // Gui_Design gui_design = new Gui_Design();
-                // Gui_Design.main();
+                // App.start(Stage primaryStage);
 
                 // !! Start E-Auction and Add caller
                 // Start scenner

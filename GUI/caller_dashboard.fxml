@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="1038.0" stylesheets="@master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="1038.0">
+        <items>
+          <Button mnemonicParsing="false" text="Caller" />
+            <Button mnemonicParsing="false" text="User" />
+            <Button mnemonicParsing="false" text="VIP User" />
+            <Button mnemonicParsing="false" text="Auction" />
+            <Button mnemonicParsing="false" text="Stats" />
+            <Button mnemonicParsing="false" text="All Time Products" />
+            <Button mnemonicParsing="false" text="Start Auction" />
+        </items>
+      </ToolBar>
+      <Label layoutX="382.0" layoutY="74.0" text="Label" />
+      <ScrollPane layoutX="8.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
+        </content>
+      </ScrollPane>
+      <Text layoutX="8.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users" wrappingWidth="39.56705856323242" />
+      <Button layoutX="129.0" layoutY="44.0" mnemonicParsing="false" onAction="#createUser" text="Add User" />
+      <ScrollPane layoutX="266.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
+         </content>
+      </ScrollPane>
+      <Text layoutX="266.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garages" wrappingWidth="65.56705856323242" />
+      <Button layoutX="359.0" layoutY="44.0" mnemonicParsing="false" onAction="#createGarage" text="Add Garages" />
+      <ScrollPane layoutX="533.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
+         </content>
+      </ScrollPane>
+      <Text layoutX="531.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Garages" wrappingWidth="87.0" />
+      <Button layoutX="598.0" layoutY="45.0" mnemonicParsing="false" text="Add Sp. Garages" />
+      <ScrollPane layoutX="799.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
+         </content>
+      </ScrollPane>
+      <Text layoutX="799.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP Users" wrappingWidth="87.0" />
+      <Button layoutX="893.0" layoutY="45.0" mnemonicParsing="false" text="add VIP User" />
+   </children>
+</Pane>
