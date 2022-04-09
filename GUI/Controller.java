@@ -111,8 +111,7 @@ public class Controller {
         
         
         // Caller
-        Caller caller;
-        
+        public Caller caller;
         public Timer time;
         
         public static int Auctions; // How many auction have been executed "today"
@@ -188,8 +187,6 @@ public class Controller {
                                 
                                 public void createCaller(ActionEvent event) {
                                         try {
-                                                callerLoginError.setText("Please enter a valid Name");
-                                                
                                                 if (temp_caller_name.getText().isEmpty()) {
                                                         callerLoginError.setText("Please enter a valid Name");
                                                 }
@@ -200,8 +197,7 @@ public class Controller {
                                                 
                                                 if(!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()){
                                                         caller = new Caller(temp_caller_id.getText(), temp_caller_name.getText());
-                                                        System.out.println(caller.getName());
-                                                        
+
                                                         // Switch to dashboard
                                                         switchToCallerDashboard();
                                                 }
@@ -212,65 +208,69 @@ public class Controller {
                                 
                                 public void createVIPUser(ActionEvent event) {
                                         try {
-                                                callerLoginError.setText("Please enter a valid Name");
-                                                
-                                                if (temp_caller_name.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid Name");
+                                                if (temp_userVIP_name.getText().isEmpty()) {
+                                                        userVIPAddError.setText("Please enter a valid Name");
                                                 }
                                                 
-                                                if (temp_caller_id.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid ID");
+                                                if (temp_userVIP_id.getText().isEmpty()) {
+                                                        userVIPAddError.setText("Please enter a valid ID");
                                                 }
                                                 
-                                                if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
+                                                if (!temp_userVIP_id.getText().isEmpty() && !temp_userVIP_name.getText().isEmpty()){
+                                                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser(temp_userVIP_id.getText(), temp_userVIP_name.getText()));
                                                         
                                                         ActiveNumberOfVIPUsers++;
                                                         ALlTimeVIPUsers++;
-
-                                                        callerLoginError.setText("VIP User created");
+                                                        userVIPAddError.setText("VIP User created");
                                                 }
                                         }
                                         catch (Exception e) {
-                                                callerLoginError.setText("Some Error was made");
+                                                userVIPAddError.setText("Some Error was made");
                                         }
                                 }
                                 
                                 public void createUser(ActionEvent event) {
                                         try {
-                                                callerLoginError.setText("Please enter a valid Name");
-                                                
-                                                if (temp_caller_name.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid Name");
+                                                if (temp_user_name.getText().isEmpty()) {
+                                                        userAddError.setText("Please enter a valid Name");
                                                 }
                                                 
-                                                if (temp_caller_id.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid ID");
+                                                if (temp_user_id.getText().isEmpty()) {
+                                                        userAddError.setText("Please enter a valid ID");
                                                 }
                                                 
-                                                if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                                        Users.add(ActiveNumberOfUsers, caller.AddUser());
+                                                if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
+                                                        Users.add(ActiveNumberOfUsers, caller.AddUser(temp_user_id.getText(), temp_user_name.getText()));
+                                                        
                                                         ActiveNumberOfUsers++;
                                                         ALlTimeUsers++;
-                                                        
-                                                        callerLoginError.setText("User created");
+                                                        userAddError.setText("User created");
                                                 }
                                         }
                                         catch (Exception e) {
-                                                callerLoginError.setText("Some Error was made");
+                                                System.out.println(e);
+                                                userAddError.setText("Some Error was made");
                                         }
                                 }
                                 
                                 public void createGarage(ActionEvent event) {
                                         try {
-                                                callerLoginError.setText("Please enter a valid Name");
-                                                
-                                                if (temp_caller_name.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid Name");
+                                                if (temp_garage_owner.getText().isEmpty()) {
+                                                        GarageAddError.setText("Please enter a valid User Name");
                                                 }
                                                 
-                                                if (temp_caller_id.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid ID");
+                                                if (temp_garage_size.getText().isEmpty()) {
+                                                        GarageAddError.setText("Please enter a size");
+                                                }
+
+                                                if (temp_garage_is_locked.getText().isEmpty()) {
+                                                        GarageAddError.setText("Please check the box if si locked or not");
+                                                }
+                                                if (temp_garage_minimum_price.getText().isEmpty()) {
+                                                        GarageAddError.setText("Please enter a minimum price for the garage");
+                                                }
+                                                if (temp_garage_description.getText().isEmpty()) {
+                                                        GarageAddError.setText("Please enter a description for the garage");
                                                 }
                                                 
                                                 if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
@@ -279,7 +279,7 @@ public class Controller {
                                                         ActiveNumberOfStorages++;
                                                         AllTimeStorages++;
 
-                                                        callerLoginError.setText("Storage Created");
+                                                        GarageAddError.setText("Storage Created");
                                                 }
                                         }
                                         catch (Exception e) {
@@ -289,8 +289,6 @@ public class Controller {
                                 
                                 public void createSpecialGarage(ActionEvent event) {
                                         try {
-                                                callerLoginError.setText("Please enter a valid Name");
-                                                
                                                 if (temp_caller_name.getText().isEmpty()) {
                                                         callerLoginError.setText("Please enter a valid Name");
                                                 }

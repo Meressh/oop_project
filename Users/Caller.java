@@ -48,32 +48,18 @@ public class Caller extends Being {
 
     }
 
-    public User AddUser() {
-        Scanner scanner = new Scanner(System.in);
+    public User AddUser(String id, String name) {
 
-        System.out.println("Prosim zadajte ID pouzivatela:");
-        data_id = scanner.next();
-        System.out.println("Prosim zadajte Meno pouzivatela:");
-        data_name = scanner.next();
+        User user = new User(id, name);
 
-        User user = new User(data_id, data_name);
-
-        scanner.close();
         return user;
     }
 
-    public VIPUser AddVIPUser() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Prosim zadajte ID VIP pouzivatela:");
-        data_id = scanner.next();
-        System.out.println("Prosim zadajte Meno VIP pouzivatela:");
-        data_name = scanner.next();
+    public VIPUser AddVIPUser(String id, String name) {
 
-        VIPUser vipUser = new VIPUser(data_id, data_name);
+        VIPUser vipUser = new VIPUser(id, name);
 
-        scanner.close();
         return vipUser;
-
     }
 
     public Garage AddGarage() {

@@ -17,7 +17,6 @@ public class App extends Application {
             primaryStage.setTitle("Aukcia zabudnutych skladov");
             primaryStage.setScene(scene);
             primaryStage.show();
-            
         }
         catch (Exception e) {
             e.printStackTrace();
