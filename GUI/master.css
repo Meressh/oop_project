@@ -27,11 +27,10 @@
     -fx-border-radius: 5, 5, 5, 5;
 }
 
-#callerLoginError {
-    -fx-text-fill: #000;
-}
-
-#callerLoginError {
+#callerLoginError,
+#specialGarageAddError,
+#userVIPAddError,
+#userAddError {
     -fx-text-fill: rgb(135, 0, 0);
     -fx-font-size: 8pt;
 }

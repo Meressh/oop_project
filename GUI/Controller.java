@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -69,7 +70,7 @@ public class Controller {
         @FXML
         private TextField temp_special_garage_specialItems;
         @FXML
-        private TextField temp_special_garage_is_locked;
+        private CheckBox temp_special_garage_is_locked;
         @FXML
         private TextField temp_special_garage_minimum_price;
         @FXML
@@ -80,6 +81,22 @@ public class Controller {
         private Button AddSpecialGarage;
         @FXML
         private TextField specialGarageAddError;
+
+        // Add Garage
+        @FXML
+        private TextField temp_garage_owner;
+        @FXML
+        private TextField temp_garage_size;
+        @FXML
+        private CheckBox temp_garage_is_locked;
+        @FXML
+        private TextField temp_garage_minimum_price;
+        @FXML
+        private TextField temp_garage_description;
+        @FXML
+        private Button AddGarage;
+        @FXML
+        private TextField GarageAddError;
         
         //Add buttons in Caller dashboard
         @FXML
