@@ -27,6 +27,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -74,9 +75,9 @@ public class Controller {
         @FXML
         private TextField temp_special_garage_minimum_price;
         @FXML
-        private TextField temp_special_garage_description;
+        private TextArea temp_special_garage_description;
         @FXML
-        private TextField temp_special_garage_history;
+        private TextArea temp_special_garage_history;
         @FXML
         private Button AddSpecialGarage;
         @FXML
@@ -92,7 +93,7 @@ public class Controller {
         @FXML
         private TextField temp_garage_minimum_price;
         @FXML
-        private TextField temp_garage_description;
+        private TextArea temp_garage_description;
         @FXML
         private Button AddGarage;
         @FXML

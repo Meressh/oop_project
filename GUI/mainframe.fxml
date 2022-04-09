@@ -26,6 +26,7 @@
       <Text layoutX="381.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meno" />
       <Button fx:id="loginCaller" layoutX="381.0" layoutY="219.0" mnemonicParsing="false" onAction="#createCaller" prefHeight="29.0" prefWidth="208.0" text="Log-in" />
       <Label layoutX="382.0" layoutY="74.0" text="Label" />
-      <TextField fx:id="callerLoginError" layoutX="371.0" layoutY="73.0" prefHeight="22.0" prefWidth="228.0" />
+      <TextField fx:id="callerLoginError" layoutX="381.0" layoutY="73.0" prefHeight="22.0" prefWidth="228.0" />
+      <Text layoutX="109.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caller Login" />
    </children>
 </Pane>

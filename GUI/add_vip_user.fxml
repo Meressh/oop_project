@@ -29,5 +29,6 @@
       <Text layoutX="415.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meno" />
       <Button fx:id="loginCaller" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Spät" />
       <TextField fx:id="callerLoginError" layoutX="415.0" layoutY="82.0" prefHeight="22.0" prefWidth="228.0" />
+      <Text layoutX="122.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add VIP User" />
    </children>
 </Pane>
