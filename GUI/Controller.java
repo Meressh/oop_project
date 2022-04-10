@@ -333,7 +333,7 @@ public class Controller implements Initializable {
                                 GarageAddError.setText("Please enter a integers for Minimum price or for size");
                         }
 
-                        if (!temp_garage_owner.getText().isEmpty() && !temp_garage_size.getText().isEmpty() && !temp_garage_minimum_price.getText().isEmpty() && !temp_garage_description.getText().isEmpty() &&isNumeric(temp_garage_size.getText()) && isNumeric(temp_garage_minimum_price.getText()) ) {
+                        if (!temp_garage_owner.getText().isEmpty() && !temp_garage_size.getText().isEmpty() && !temp_garage_minimum_price.getText().isEmpty() && !temp_garage_description.getText().isEmpty() &&isNumeric(temp_garage_size.getText()) && isNumeric(temp_garage_minimum_price.getText())) {
 
                                 System.out.println(temp_garage_owner.getText());
                                 System.out.println(temp_garage_description.getText());
@@ -341,8 +341,6 @@ public class Controller implements Initializable {
                                 System.out.println(Integer.parseInt(temp_garage_minimum_price.getText()));
 
                                 Garage CurrentGarage = caller.AddGarage(temp_garage_owner.getText(), null, true, temp_garage_description.getText(), Integer.parseInt(temp_garage_size.getText()) , false, Integer.parseInt(temp_garage_minimum_price.getText()));
-                                System.out.println("aaaaaa" + CurrentGarage.getOldOwner());
-                                
 
                                 Garages.add(ActiveNumberOfStorages, CurrentGarage);
 
@@ -359,35 +357,51 @@ public class Controller implements Initializable {
 
         public void createSpecialGarage(ActionEvent event) {
                 try {
-                        if (temp_garage_owner.getText().isEmpty()) {
-                                GarageAddError.setText("Please enter a valid User Name");
+                        // private CheckBox temp_special_garage_is_locked;
+
+                        if (temp_special_garage_owner.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter a valid User Name");
                         }
-                        if (temp_garage_size.getText().isEmpty()) {
-                                GarageAddError.setText("Please enter a size");
+                        if (temp_special_garage_size.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter a size");
                         }
                         // if (temp_garage_is_locked.getText().isEmpty()) {
-                        // GarageAddError.setText("Please check the box if is locked or not");
+                        // specialGarageAddError.setText("Please check the box if is locked or not");
                         // }
-                        if (temp_garage_minimum_price.getText().isEmpty()) {
-                                GarageAddError.setText("Please enter a minimum price for the garage");
+                        if (temp_special_garage_minimum_price.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter a minimum price for the garage");
                         }
-                        if (temp_garage_description.getText().isEmpty()) {
-                                GarageAddError.setText("Please enter a description for the garage");
+                        if (temp_special_garage_specialItems.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter Special Items for the garage");
+                        }
+                        if (temp_special_garage_description.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter a description for the garage");
+                        }
+                        if (temp_special_garage_history.getText().isEmpty()) {
+                                specialGarageAddError.setText("Please enter the history for the garage");
+                        }
+                        
+                        if (!isNumeric(temp_special_garage_size.getText()) || !isNumeric(temp_special_garage_minimum_price.getText())) {
+                                specialGarageAddError.setText("Please enter a integers for Minimum price or for size");
                         }
 
-                        if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                SpecialGarage CurrentSpecialGarage = caller.AddSpecialGarage(temp_garage_owner.getText(), null, (temp_garage_is_locked.getText().isEmpty() ? true : false),temp_garage_description.getText(), Integer.parseInt(temp_garage_size.getText()) , false, Integer.parseInt(temp_garage_minimum_price.getText()));
+                        if (!temp_special_garage_owner.getText().isEmpty() && !temp_special_garage_size.getText().isEmpty() && !temp_special_garage_history.getText().isEmpty() && !temp_special_garage_specialItems.getText().isEmpty() && !temp_special_garage_minimum_price.getText().isEmpty() && !temp_special_garage_description.getText().isEmpty() && isNumeric(temp_special_garage_size.getText()) && isNumeric(temp_special_garage_minimum_price.getText())) {
 
-                                SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
+                                SpecialGarage CurrentSpecialGarage = caller.AddSpecialGarage(temp_special_garage_owner.getText(), null, true, temp_special_garage_description.getText(), Integer.parseInt(temp_special_garage_size.getText()), false, Integer.parseInt(temp_special_garage_minimum_price.getText()));
+                                CurrentSpecialGarage.setSpecialItems(temp_special_garage_specialItems.getText());
+                                CurrentSpecialGarage.setHistory(temp_special_garage_history.getText());
+
+                                SpecialGarages.add(ActiveNumberOfStoragesSpecial, CurrentSpecialGarage);
 
                                 ActiveNumberOfStoragesSpecial++;
                                 AllTimeStoragesSpecial++;
 
-                                callerLoginError.setText("Special storage Created");
+                                specialGarageAddError.setText("Special storage Created");
                         }
                 }
                 catch (Exception e) {
-                        callerLoginError.setText("Some Error was made");
+                        System.out.println(e);
+                        specialGarageAddError.setText("Some Error was made");
                 }
         }
 }

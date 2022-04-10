@@ -69,47 +69,10 @@ public class Caller extends Being {
         return garage;
     }
 
-    public SpecialGarage AddSpecialGarage() {
-        Scanner scanner = new Scanner(System.in);
-        SpecialGarage special_garage = new SpecialGarage();
+    public SpecialGarage AddSpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice) {
+        
+        SpecialGarage special_garage = new SpecialGarage(old_owner, owner, locked, description, size, sold, minimumprice);
 
-        System.out.print("Majitel tohto skladu:");
-        special_garage.setOldOwner(scanner.next());
-
-        // System.out.print(":");
-        // special_garage.setOwner(scanner.next());
-
-        System.out.println("Prosim zvolte si moznost:");
-        System.out.println("Sklad je zamknuty:");
-        System.out.println("(1) Ano");
-        System.out.println("(2) Nie");
-        int is_locked = scanner.nextInt();
-
-        if (is_locked == 1) {
-            special_garage.setLocked(true);
-        }
-        else {
-            special_garage.setLocked(false);
-        }
-
-        System.out.println("Zakladny popis skladu:");
-        special_garage.setDescription(scanner.next());
-
-        System.out.println("Velkost skladu v m3:");
-        special_garage.setSize(scanner.nextInt());
-
-        special_garage.setSold(false);
-
-        System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
-        special_garage.setMinimumPrice(scanner.nextInt());
-
-        System.out.println("Zadajte specialne/vzacne veci, ktore mozno najst v sklade. Tieto hodnoty oddelujte znakom ',':");
-        special_garage.setSpecialItems(scanner.next());
-
-        System.out.println("Historia skladu:");
-        special_garage.setHistory(scanner.next());
-
-        scanner.close();
         return special_garage;
 
     }
