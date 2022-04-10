@@ -191,6 +191,19 @@ public class Controller implements Initializable {
                 }
         }
 
+        public static boolean isNumeric(String strNum) {
+                if (strNum == null) {
+                        return false;
+                }
+                try {
+                        double d = Double.parseDouble(strNum);
+                }
+                catch (NumberFormatException nfe) {
+                        return false;
+                }
+                return true;
+        }
+
         public void switchToCallerDashboard() throws Exception {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("caller_dashboard.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -268,6 +281,7 @@ public class Controller implements Initializable {
                         }
                 }
                 catch (Exception e) {
+                        System.out.println(e);
                         userVIPAddError.setText("Some Error was made");
                 }
         }
@@ -285,6 +299,7 @@ public class Controller implements Initializable {
 
                         if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
                                 User CurretnUser = caller.AddUser(temp_user_id.getText(), temp_user_name.getText(), user_psc.getText(), user_address.getText(), user_region.getText(), user_state.getText());
+
                                 Users.add(ActiveNumberOfUsers, CurretnUser);
 
                                 ActiveNumberOfUsers++;
@@ -293,9 +308,7 @@ public class Controller implements Initializable {
                         }
                 }
                 catch (Exception e) {
-                        System.out.println(e);
                         userAddError.setText("Some Error was made");
-                        System.exit(1);
                 }
         }
 
@@ -307,17 +320,31 @@ public class Controller implements Initializable {
                         if (temp_garage_size.getText().isEmpty()) {
                                 GarageAddError.setText("Please enter a size");
                         }
-                        if (temp_garage_is_locked.getText().isEmpty()) {
-                                GarageAddError.setText("Please check the box if is locked or not");
-                        }
+                        // if (temp_garage_is_locked.getText().isEmpty()) {
+                        //         GarageAddError.setText("Please check the box if is locked or not");
+                        // }
                         if (temp_garage_minimum_price.getText().isEmpty()) {
                                 GarageAddError.setText("Please enter a minimum price for the garage");
                         }
                         if (temp_garage_description.getText().isEmpty()) {
                                 GarageAddError.setText("Please enter a description for the garage");
                         }
-                        if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                Garages.add(ActiveNumberOfStorages, caller.AddGarage());
+                        if(!isNumeric(temp_garage_size.getText()) || !isNumeric(temp_garage_minimum_price.getText())){
+                                GarageAddError.setText("Please enter a integers for Minimum price or for size");
+                        }
+
+                        if (!temp_garage_owner.getText().isEmpty() && !temp_garage_size.getText().isEmpty() && !temp_garage_minimum_price.getText().isEmpty() && !temp_garage_description.getText().isEmpty() &&isNumeric(temp_garage_size.getText()) && isNumeric(temp_garage_minimum_price.getText()) ) {
+
+                                System.out.println(temp_garage_owner.getText());
+                                System.out.println(temp_garage_description.getText());
+                                System.out.println(Integer.parseInt(temp_garage_size.getText()));
+                                System.out.println(Integer.parseInt(temp_garage_minimum_price.getText()));
+
+                                Garage CurrentGarage = caller.AddGarage(temp_garage_owner.getText(), null, true, temp_garage_description.getText(), Integer.parseInt(temp_garage_size.getText()) , false, Integer.parseInt(temp_garage_minimum_price.getText()));
+                                System.out.println("aaaaaa" + CurrentGarage.getOldOwner());
+                                
+
+                                Garages.add(ActiveNumberOfStorages, CurrentGarage);
 
                                 ActiveNumberOfStorages++;
                                 AllTimeStorages++;
@@ -332,15 +359,25 @@ public class Controller implements Initializable {
 
         public void createSpecialGarage(ActionEvent event) {
                 try {
-                        if (temp_caller_name.getText().isEmpty()) {
-                                callerLoginError.setText("Please enter a valid Name");
+                        if (temp_garage_owner.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a valid User Name");
                         }
-
-                        if (temp_caller_id.getText().isEmpty()) {
-                                callerLoginError.setText("Please enter a valid ID");
+                        if (temp_garage_size.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a size");
+                        }
+                        // if (temp_garage_is_locked.getText().isEmpty()) {
+                        // GarageAddError.setText("Please check the box if is locked or not");
+                        // }
+                        if (temp_garage_minimum_price.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a minimum price for the garage");
+                        }
+                        if (temp_garage_description.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a description for the garage");
                         }
 
                         if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
+                                SpecialGarage CurrentSpecialGarage = caller.AddSpecialGarage(temp_garage_owner.getText(), null, (temp_garage_is_locked.getText().isEmpty() ? true : false),temp_garage_description.getText(), Integer.parseInt(temp_garage_size.getText()) , false, Integer.parseInt(temp_garage_minimum_price.getText()));
+
                                 SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
 
                                 ActiveNumberOfStoragesSpecial++;

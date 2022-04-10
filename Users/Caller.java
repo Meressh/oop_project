@@ -62,34 +62,9 @@ public class Caller extends Being {
         return vipUser;
     }
 
-    public Garage AddGarage() {
+    public Garage AddGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice) {
 
-        Garage garage = new Garage();
-
-        System.out.print("Majitel tohto skladu:");
-
-        // System.out.println(":");
-        // garage.setOwner(scanner.next());
-
-        System.out.println("Prosim zvolte si moznost:");
-        System.out.println("Sklad je zamknuty:");
-        System.out.println("(1) Ano");
-        System.out.println("(2) Nie");
-
-        if (is_locked == 1) {
-            garage.setLocked(true);
-        }
-        else {
-            garage.setLocked(false);
-        }
-
-        System.out.println("Zakladny popis skladu:");
-
-        System.out.println("Velkost skladu v m3:");
-
-        garage.setSold(false);
-
-        System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
+        Garage garage = new Garage(old_owner, owner, locked, description, size, sold, minimumprice);
 
         return garage;
     }
