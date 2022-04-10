@@ -2,9 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
@@ -22,33 +21,17 @@
         </items>
       </ToolBar>
       <Label layoutX="382.0" layoutY="74.0" text="Label" />
-      <ScrollPane layoutX="8.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
-        </content>
-      </ScrollPane>
       <Text layoutX="8.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users" wrappingWidth="39.56705856323242" />
       <Button fx:id="AddUserButton" layoutX="129.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToAddUser" text="Add User" />
-      <ScrollPane layoutX="266.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
-         </content>
-      </ScrollPane>
       <Text layoutX="266.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garages" wrappingWidth="65.56705856323242" />
       <Button fx:id="AddGarageButton" layoutX="359.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToAddGarage" text="Add Garages" />
-      <ScrollPane layoutX="533.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
-         </content>
-      </ScrollPane>
       <Text layoutX="531.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Garages" wrappingWidth="87.0" />
       <Button fx:id="AddSpecialGaragesButton" layoutX="598.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchToAddSpecialGarages" text="Add Sp. Garages" />
-      <ScrollPane layoutX="799.0" layoutY="78.0" prefHeight="380.0" prefWidth="232.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="215.0" />
-         </content>
-      </ScrollPane>
       <Text layoutX="799.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP Users" wrappingWidth="87.0" />
       <Button fx:id="AddVIPUserButton" layoutX="899.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchToAddVIPUsers" text="Add VIP User" />
+      <ListView fx:id="userList" layoutY="75.0" prefHeight="386.0" prefWidth="242.0" />
+      <ListView fx:id="garageList" layoutX="256.0" layoutY="75.0" prefHeight="386.0" prefWidth="242.0" />
+      <ListView fx:id="specialgaragesList" layoutX="523.0" layoutY="75.0" prefHeight="386.0" prefWidth="242.0" />
+      <ListView fx:id="vipuserList" layoutX="788.0" layoutY="75.0" prefHeight="386.0" prefWidth="242.0" />
    </children>
 </Pane>

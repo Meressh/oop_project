@@ -26,9 +26,17 @@
       <TextField id="temp_caller_id" fx:id="temp_user_name" layoutX="415.0" layoutY="188.0" styleClass="text-field" stylesheets="@master.css" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="415.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-      <Text layoutX="415.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meno" />
+      <Text layoutX="415.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
       <Button fx:id="loginCaller" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Spät" />
       <TextField fx:id="userAddError" layoutX="415.0" layoutY="82.0" prefHeight="22.0" prefWidth="228.0" />
       <Text layoutX="131.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add User" />
+      <TextField id="temp_caller_id" fx:id="user_address" layoutX="637.0" layoutY="121.0" styleClass="text-field" stylesheets="@master.css" />
+      <Text layoutX="637.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+      <TextField id="temp_caller_id" fx:id="user_state" layoutX="637.0" layoutY="189.0" styleClass="text-field" stylesheets="@master.css" />
+      <Text layoutX="637.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
+      <TextField id="temp_caller_id" fx:id="user_region" layoutX="190.0" layoutY="189.0" styleClass="text-field" stylesheets="@master.css" />
+      <Text layoutX="190.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
+      <TextField id="temp_caller_id" fx:id="user_psc" layoutX="190.0" layoutY="121.0" styleClass="text-field" stylesheets="@master.css" />
+      <Text layoutX="190.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PSC" />
    </children>
 </Pane>

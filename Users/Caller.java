@@ -12,8 +12,8 @@ public class Caller extends Being {
     public static String data_id;
     public static String data_name;
 
-    public Caller(String id, String name) {
-        super(id, name);
+    public Caller(String id, String name, String psc, String adress, String region, String state) {
+        super(id, name, psc, adress, region, state);
     }
 
     @Override
@@ -48,27 +48,25 @@ public class Caller extends Being {
 
     }
 
-    public User AddUser(String id, String name) {
+    public User AddUser(String id, String name, String psc, String adress,String region, String state) {
 
-        User user = new User(id, name);
+        User user = new User(id, name, psc, adress, region, state);
 
         return user;
     }
 
-    public VIPUser AddVIPUser(String id, String name) {
+    public VIPUser AddVIPUser(String id, String name, String psc, String adress,String region, String state) {
 
-        VIPUser vipUser = new VIPUser(id, name);
+        VIPUser vipUser = new VIPUser(id, name, psc, adress, region, state);
 
         return vipUser;
     }
 
     public Garage AddGarage() {
-        Scanner scanner = new Scanner(System.in);
 
         Garage garage = new Garage();
 
         System.out.print("Majitel tohto skladu:");
-        garage.setOldOwner(scanner.next());
 
         // System.out.println(":");
         // garage.setOwner(scanner.next());
@@ -77,7 +75,6 @@ public class Caller extends Being {
         System.out.println("Sklad je zamknuty:");
         System.out.println("(1) Ano");
         System.out.println("(2) Nie");
-        int is_locked = scanner.nextInt();
 
         if (is_locked == 1) {
             garage.setLocked(true);
@@ -87,17 +84,13 @@ public class Caller extends Being {
         }
 
         System.out.println("Zakladny popis skladu:");
-        garage.setDescription(scanner.next());
 
         System.out.println("Velkost skladu v m3:");
-        garage.setSize(scanner.nextInt());
 
         garage.setSold(false);
 
         System.out.println("Prosim zadajte vyvolavaciu cenu (minimalnu):");
-        garage.setMinimumPrice(scanner.nextInt());
 
-        scanner.close();
         return garage;
     }
 

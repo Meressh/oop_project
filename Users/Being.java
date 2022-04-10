@@ -28,9 +28,10 @@ public class Being {
         return text;
     }
 
-    public Being(String id, String name) {
+    public Being(String id, String name, String psc, String adress, String region, String state) {
         ID = id;
         Name = name;
+        address = new Address(psc, adress, region, state);
     }
 
     public String getName() {
@@ -42,17 +43,14 @@ public class Being {
     }
 
     public void setAdress(String psc, String adresa, String okres, String stat) {
-        address.psc = psc;
-        address.adresa = adresa;
-        address.okres = okres;
-        address.stat = stat;
+        address = new Address(psc, adresa, okres, stat);
     }
 
     public String getPSC() {
         return address.psc;
     }
 
-    public String getAdresa() {
+    public String getAdress() {
         return address.adresa;
     }
 

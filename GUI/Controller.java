@@ -9,6 +9,7 @@ import java.util.Timer;
 import GUI.App;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Storages.Garage;
 import Storages.SpecialGarage;
@@ -22,18 +23,30 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Controller {
+public class Controller implements Initializable {
         // public static Caller caller;
-        //Login caller
+        // List View data
+        @FXML
+        public ListView<String> userList;
+        @FXML
+        public ListView<String> vipuserList;
+        @FXML
+        public ListView<String> garageList;
+        @FXML
+        public ListView<String> specialgaragesList;
+
+        // Login caller
         @FXML
         private TextField temp_caller_id;
         @FXML
@@ -42,8 +55,8 @@ public class Controller {
         private Button loginCaller;
         @FXML
         private TextField callerLoginError;
-        
-        //Add User
+
+        // Add User
         @FXML
         private TextField temp_user_id;
         @FXML
@@ -52,7 +65,15 @@ public class Controller {
         private Button AddUser;
         @FXML
         private TextField userAddError;
-        
+        @FXML
+        private TextField user_psc;
+        @FXML
+        private TextField user_address;
+        @FXML
+        private TextField user_region;
+        @FXML
+        private TextField user_state;
+
         // Add VIP User
         @FXML
         private TextField temp_userVIP_id;
@@ -62,7 +83,14 @@ public class Controller {
         private Button AddUserVIP;
         @FXML
         private TextField userVIPAddError;
-
+        @FXML
+        private TextField vip_psc;
+        @FXML
+        private TextField vip_address;
+        @FXML
+        private TextField vip_region;
+        @FXML
+        private TextField vip_state;
         // Add Special Garage
         @FXML
         private TextField temp_special_garage_owner;
@@ -98,8 +126,8 @@ public class Controller {
         private Button AddGarage;
         @FXML
         private TextField GarageAddError;
-        
-        //Add buttons in Caller dashboard
+
+        // Add buttons in Caller dashboard
         @FXML
         private Button AddUserButton;
         @FXML
@@ -108,277 +136,221 @@ public class Controller {
         private Button AddSpecialGaragesButton;
         @FXML
         private Button AddGarageButton;
-        
-        
+
         // Caller
         public static Caller caller;
         public Timer time;
-        
+
         public static int Auctions; // How many auction have been executed "today"
         public static int ActiveNumberOfUsers = 0; // How many users are now bidding
         public static int ActiveNumberOfVIPUsers = 0; // How many VIP users are now bidding
-        
+
         public static int ActiveNumberOfStorages = 0; // How many Storages are now in auction
         public static int ActiveNumberOfStoragesSpecial = 0; // How many Special Storages are now in auction
-        
+
         public static int ALlTimeUsers = 0; // All time users
         public static int ALlTimeVIPUsers = 0; // All time users
-        
+
         public static int AllTimeStorages = 0; // All time Garages
         public static int AllTimeStoragesSpecial = 0; // All time Special Garages
-        
+
         public static boolean Active = false; // If auction is rolling now
-        
+
         public static ArrayList<User> Users = new ArrayList<User>(); // Create ArrayList for store Users which are added to auction
         public static ArrayList<VIPUser> VIPUsers = new ArrayList<VIPUser>(); // Create ArrayList for store VIPusers which are added to auction
         public static ArrayList<Garage> Garages = new ArrayList<Garage>(); // Create ArrayList for store Garages which are added to auction
         public static ArrayList<SpecialGarage> SpecialGarages = new ArrayList<SpecialGarage>(); // Create ArrayList for store SpecialGarages which are added to auction
-        
-        // Setup timer
-        // public static void Timer() {
-                //         long startTime = System.nanoTime(); // Start nanoTimer
-                // }
-                
-                // Function which save / edit / delete data durring live auction
-                // public static void ProcessBid(int bid, Storage storage) {
-                        //         if (bid > storage.MinimumPrice) {
-                                //                 BidValue = bid;
-                                //         }
-                                // }
-                                public void switchToCallerDashboard() throws Exception{
-                                        // Parent root = FXMLLoader.load(getClass().getResource("caller_dashboard.fxml"));
-                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("caller_dashboard.fxml"));
-                                        Parent root = (Parent) fxmlLoader.load();
-                                        Stage window = (Stage) loginCaller.getScene().getWindow();
-                                        window.setScene(new Scene(root));
-                                }
-                                
-                                public void switchToAddUser() throws Exception {
-                                        // Parent root = FXMLLoader.load(getClass().getResource("caller_dashboard.fxml"));
-                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_user.fxml"));
-                                        Parent root = (Parent) fxmlLoader.load();
-                                        Stage window = (Stage) AddUserButton.getScene().getWindow();
-                                        window.setScene(new Scene(root));
-                                }
-                                
-                                public void switchToAddGarage() throws Exception {
-                                        // Parent root = FXMLLoader.load(getClass().getResource("caller_dashboard.fxml"));
-                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_garages.fxml"));
-                                        Parent root = (Parent) fxmlLoader.load();
-                                        Stage window = (Stage) AddGarageButton.getScene().getWindow();
-                                        window.setScene(new Scene(root));
-                                }
-                                
-                                public void switchToAddSpecialGarages() throws Exception {
-                                        // Parent root = FXMLLoader.load(getClass().getResource("caller_dashboard.fxml"));
-                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_special_garages.fxml"));
-                                        Parent root = (Parent) fxmlLoader.load();
-                                        Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
-                                        window.setScene(new Scene(root));
-                                }
-                                
-                                public void switchToAddVIPUsers() throws Exception {
-                                        // Parent root = FXMLLoader.load(getClass().getResource("caller_dashboard.fxml"));
-                                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_vip_user.fxml"));
-                                        Parent root = (Parent) fxmlLoader.load();
-                                        Stage window = (Stage) AddVIPUserButton.getScene().getWindow();
-                                        window.setScene(new Scene(root));
-                                }
-                                
-                                public void createCaller(ActionEvent event) {
-                                        try {
-                                                if (temp_caller_name.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid Name");
-                                                }
-                                                
-                                                if(temp_caller_id.getText().isEmpty()){
-                                                        callerLoginError.setText("Please enter a valid ID");
-                                                }
-                                                
-                                                if(!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()){
-                                                        caller = new Caller(temp_caller_id.getText(), temp_caller_name.getText());
-                                                        // Switch to dashboard
-                                                        switchToCallerDashboard();
-                                                }
-                                        } catch (Exception e) {
-                                                callerLoginError.setText("Some Error was made");
-                                        }
-                                }
-                                
-                                public void createVIPUser(ActionEvent event) {
-                                        try {
-                                                if (temp_userVIP_name.getText().isEmpty()) {
-                                                        userVIPAddError.setText("Please enter a valid Name");
-                                                }
-                                                
-                                                if (temp_userVIP_id.getText().isEmpty()) {
-                                                        userVIPAddError.setText("Please enter a valid ID");
-                                                }
-                                                
-                                                if (!temp_userVIP_id.getText().isEmpty() && !temp_userVIP_name.getText().isEmpty()){
-                                                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser(temp_userVIP_id.getText(), temp_userVIP_name.getText()));
-                                                        
-                                                        ActiveNumberOfVIPUsers++;
-                                                        ALlTimeVIPUsers++;
-                                                        userVIPAddError.setText("VIP User created");
-                                                }
-                                        }
-                                        catch (Exception e) {
-                                                userVIPAddError.setText("Some Error was made");
-                                        }
-                                }
-                                
-                                public void createUser(ActionEvent event) {
-                                        try {
-                                                if (temp_user_name.getText().isEmpty()) {
-                                                        userAddError.setText("Please enter a valid Name");
-                                                }
-                                                
-                                                if (temp_user_id.getText().isEmpty()) {
-                                                        userAddError.setText("Please enter a valid ID");
-                                                }
-                                                
-                                                if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
-                                                        Users.add(ActiveNumberOfUsers, caller.AddUser(temp_user_id.getText(), temp_user_name.getText()));
-                                                        
-                                                        ActiveNumberOfUsers++;
-                                                        ALlTimeUsers++;
-                                                        userAddError.setText("User created");
-                                                }
-                                        }
-                                        catch (Exception e) {
-                                                System.out.println(e);
-                                                userAddError.setText("Some Error was made");
-                                        }
-                                }
-                                
-                                public void createGarage(ActionEvent event) {
-                                        try {
-                                                if (temp_garage_owner.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please enter a valid User Name");
-                                                }
-                                                if (temp_garage_size.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please enter a size");
-                                                }
-                                                if (temp_garage_is_locked.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please check the box if is locked or not");
-                                                }
-                                                if (temp_garage_minimum_price.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please enter a minimum price for the garage");
-                                                }
-                                                if (temp_garage_description.getText().isEmpty()) {
-                                                        GarageAddError.setText("Please enter a description for the garage");
-                                                }
-                                                if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                                        Garages.add(ActiveNumberOfStorages, caller.AddGarage());
-                                                        
-                                                        ActiveNumberOfStorages++;
-                                                        AllTimeStorages++;
 
-                                                        GarageAddError.setText("Storage Created");
-                                                }
-                                        }
-                                        catch (Exception e) {
-                                                callerLoginError.setText("Some Error was made");
-                                        }
-                                }
-                                
-                                public void createSpecialGarage(ActionEvent event) {
-                                        try {
-                                                if (temp_caller_name.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid Name");
-                                                }
-                                                
-                                                if (temp_caller_id.getText().isEmpty()) {
-                                                        callerLoginError.setText("Please enter a valid ID");
-                                                }
-                                                
-                                                if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
-                                                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
-                                                        
-                                                        ActiveNumberOfStoragesSpecial++;
-                                                        AllTimeStoragesSpecial++;
+        // List Data
+        // @FXML
+        // private ResourceBundle resources;
 
-                                                        callerLoginError.setText("Special storage Created");
-                                                }
-                                        }
-                                        catch (Exception e) {
-                                                callerLoginError.setText("Some Error was made");
-                                        }
-                                }
-                                
-                                // Place where all begins
-                                public static void main(String[] args) {
-                                        
-                                        // ?? Add some storages which will be sold -> iny sposob pridavania ako pri pridavani Vyvolavaca/Caller -> getters/setters
-                                        System.out.println("Pridajte sklady na predaj!");
-                                        
-                                        do {
-                                                // ?? Basic Garage
-                                                if (option.equals("1")) {
-                                                        Garages.add(ActiveNumberOfStorages, caller.AddGarage());
-                                                        
-                                                        ActiveNumberOfStorages++;
-                                                        AllTimeStorages++;
-                                                }
-                                                
-                                                // ?? Special Garage
-                                                if (option.equals("2")) {
-                                                        SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
-                                                        
-                                                        ActiveNumberOfStoragesSpecial++;
-                                                        AllTimeStoragesSpecial++;
-                                                }
-                                                
-                                                // ?? User
-                                                if (option.equals("3")) {
-                                                        Users.add(ActiveNumberOfUsers, caller.AddUser());
-                                                        
-                                                        ActiveNumberOfUsers++;
-                                                        ALlTimeUsers++;
-                                                }
-                                                
-                                                // ?? VIPUser
-                                                if (option.equals("4")) {
-                                                        VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser());
-                                                        
-                                                        ActiveNumberOfVIPUsers++;
-                                                        ALlTimeVIPUsers++;
-                                                }
-                                                
-                                                if (option.equals("0")) {
-                                                        System.out.println("Koniec aukčného dňa!");
-                                                        
-                                                        // ?? Print stats
-                                                        System.out.println("Statistiky dňa:");
-                                                        // Todo vypisat statistiky dna !
-                                                        System.exit(0);
-                                                }
-                                                
-                                                scanner_while.close();
-                                                
-                                        } while (!option.equals("5"));
-                                        
-                                        // ?? Start timer
-                                        // Timer();
-                                        
-                                        // // ?? Start Auction
-                                        // Active = true;
-                                        // Auctions++;
-                                        
-                                        // for (int i = 0; i < Garages.size(); i++) {
-                                                //         System.out.println("Nazov skladu je " + Garages.get(i).getName());
-                                                //         System.out.println("Minimalna cena skladu je " + Garages.get(i).getMinimumPrice());
-                                                //         System.out.println("Predchadzajúci majiteľ skladu je " + Garages.get(i).getOldOwner());
-                                                //         System.out.println("Majiteľ skladu je " + Garages.get(i).getOwner());
-                                                //         System.out.println("Sklad je zamknutý" + Garages.get(i).getLocked());
-                                                //         System.out.println("Popis skladu" + Garages.get(i).getDescription());
-                                                //         System.out.println("Rozmery skladu su " + Garages.get(i).getSize());
-                                                //         System.out.println("Sklad je predaný" + Garages.get(i).getSold());
-                                                
-                                                //         // System.out.println("Minimalna cena skladu je " + Garages.get(i).getPrice());
-                                                // }
-                                                
-                                        }
-                                }
-                                
+        // @FXML
+        // private URL location;
+
+        @Override
+        public void initialize(URL arg0, ResourceBundle arg1) {
+                // updateLists(userList, vipuserList, garageList, specialgaragesList);
+        }
+
+        static void updateLists(ListView<String> listUsers, ListView<String> listVIPUsers, ListView<String> listGarage, ListView<String> listSpecialGarage) {
+                for (int i = 0; i < Users.size(); i++) {
+                        listUsers.getItems().add(Users.get(i).getName());
+                }
+
+                for (int i = 0; i < VIPUsers.size(); i++) {
+                        listVIPUsers.getItems().add(VIPUsers.get(i).getName());
+                }
+
+                for (int i = 0; i < Garages.size(); i++) {
+                        listGarage.getItems().add(Garages.get(i).getName());
+                }
+
+                for (int i = 0; i < SpecialGarages.size(); i++) {
+                        listSpecialGarage.getItems().add(SpecialGarages.get(i).getName());
+                }
+        }
+
+        public void switchToCallerDashboard() throws Exception {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("caller_dashboard.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                fxmlLoader.setController("GUI.Controller.java");
+                Stage window = (Stage) loginCaller.getScene().getWindow();
+                window.setScene(new Scene(root));
+        }
+
+        public void switchToAddUser() throws Exception {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_user.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage window = (Stage) AddUserButton.getScene().getWindow();
+                window.setScene(new Scene(root));
+        }
+
+        public void switchToAddGarage() throws Exception {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_garages.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage window = (Stage) AddGarageButton.getScene().getWindow();
+                window.setScene(new Scene(root));
+        }
+        public void switchToAddSpecialGarages() throws Exception {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_special_garages.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
+                window.setScene(new Scene(root));
+        }
+
+        public void switchToAddVIPUsers() throws Exception {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_vip_user.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage window = (Stage) AddVIPUserButton.getScene().getWindow();
+                window.setScene(new Scene(root));
+        }
+
+        public void createCaller(ActionEvent event) {
+                try {
+                        if (temp_caller_name.getText().isEmpty()) {
+                                callerLoginError.setText("Please enter a valid Name");
+                        }
+
+                        if (temp_caller_id.getText().isEmpty()) {
+                                callerLoginError.setText("Please enter a valid ID");
+                        }
+
+                        if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
+                                caller = new Caller(temp_caller_id.getText(), temp_caller_name.getText(), null, null, null, null);
+
+                                // Switch to dashboard
+                                switchToCallerDashboard();
+                        }
+                }
+                catch (Exception e) {
+                        System.out.println(e);
+                        callerLoginError.setText("Some Error was made");
+                }
+        }
+
+        public void createVIPUser(ActionEvent event) {
+                try {
+                        if (temp_userVIP_name.getText().isEmpty()) {
+                                userVIPAddError.setText("Please enter a valid Name");
+                        }
+
+                        if (temp_userVIP_id.getText().isEmpty()) {
+                                userVIPAddError.setText("Please enter a valid ID");
+                        }
+
+                        if (!temp_userVIP_id.getText().isEmpty() && !temp_userVIP_name.getText().isEmpty()) {
+                                VIPUsers.add(ActiveNumberOfVIPUsers, caller.AddVIPUser(temp_userVIP_id.getText(), temp_userVIP_name.getText(), vip_psc.getText(), vip_address.getText(), vip_region.getText(), vip_state.getText()));
+
+                                ActiveNumberOfVIPUsers++;
+                                ALlTimeVIPUsers++;
+                                userVIPAddError.setText("VIP User created");
+                        }
+                }
+                catch (Exception e) {
+                        userVIPAddError.setText("Some Error was made");
+                }
+        }
+
+        public void createUser(ActionEvent event) {
+                try {
+                        // Add VIP User
+                        if (temp_user_name.getText().isEmpty()) {
+                                userAddError.setText("Please enter a valid Name");
+                        }
+
+                        if (temp_user_id.getText().isEmpty()) {
+                                userAddError.setText("Please enter a valid ID");
+                        }
+
+                        if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
+                                User CurretnUser = caller.AddUser(temp_user_id.getText(), temp_user_name.getText(), user_psc.getText(), user_address.getText(), user_region.getText(), user_state.getText());
+                                Users.add(ActiveNumberOfUsers, CurretnUser);
+
+                                ActiveNumberOfUsers++;
+                                ALlTimeUsers++;
+                                userAddError.setText("User created");
+                        }
+                }
+                catch (Exception e) {
+                        System.out.println(e);
+                        userAddError.setText("Some Error was made");
+                        System.exit(1);
+                }
+        }
+
+        public void createGarage(ActionEvent event) {
+                try {
+                        if (temp_garage_owner.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a valid User Name");
+                        }
+                        if (temp_garage_size.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a size");
+                        }
+                        if (temp_garage_is_locked.getText().isEmpty()) {
+                                GarageAddError.setText("Please check the box if is locked or not");
+                        }
+                        if (temp_garage_minimum_price.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a minimum price for the garage");
+                        }
+                        if (temp_garage_description.getText().isEmpty()) {
+                                GarageAddError.setText("Please enter a description for the garage");
+                        }
+                        if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
+                                Garages.add(ActiveNumberOfStorages, caller.AddGarage());
+
+                                ActiveNumberOfStorages++;
+                                AllTimeStorages++;
+
+                                GarageAddError.setText("Storage Created");
+                        }
+                }
+                catch (Exception e) {
+                        callerLoginError.setText("Some Error was made");
+                }
+        }
+
+        public void createSpecialGarage(ActionEvent event) {
+                try {
+                        if (temp_caller_name.getText().isEmpty()) {
+                                callerLoginError.setText("Please enter a valid Name");
+                        }
+
+                        if (temp_caller_id.getText().isEmpty()) {
+                                callerLoginError.setText("Please enter a valid ID");
+                        }
+
+                        if (!temp_caller_id.getText().isEmpty() && !temp_caller_name.getText().isEmpty()) {
+                                SpecialGarages.add(ActiveNumberOfStoragesSpecial, caller.AddSpecialGarage());
+
+                                ActiveNumberOfStoragesSpecial++;
+                                AllTimeStoragesSpecial++;
+
+                                callerLoginError.setText("Special storage Created");
+                        }
+                }
+                catch (Exception e) {
+                        callerLoginError.setText("Some Error was made");
+                }
+        }
+}
