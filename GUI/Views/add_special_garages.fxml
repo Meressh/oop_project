@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1038.0" stylesheets="@master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
@@ -24,20 +24,20 @@
       </ToolBar>
       <Label layoutX="382.0" layoutY="74.0" text="Label" />
       <Button fx:id="AddSpecialGarage" layoutX="484.0" layoutY="474.0" mnemonicParsing="false" onAction="#createSpecialGarage" text="Add" />
-      <TextField id="temp_caller_id" fx:id="temp_special_garage_size" layoutX="415.0" layoutY="120.0" styleClass="text-field" stylesheets="@master.css" />
-      <TextField id="temp_caller_id" fx:id="temp_special_garage_minimum_price" layoutX="415.0" layoutY="188.0" styleClass="text-field" stylesheets="@master.css" />
+      <TextField id="temp_caller_id" fx:id="temp_special_garage_size" layoutX="415.0" layoutY="120.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="temp_special_garage_minimum_price" layoutX="415.0" layoutY="188.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="415.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage size" />
       <Text layoutX="415.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum price in Auction" />
       <Button fx:id="loginCaller" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Back" />
       <TextField fx:id="specialGarageAddError" layoutX="415.0" layoutY="82.0" prefHeight="22.0" prefWidth="228.0" />
-      <TextField id="temp_caller_id" fx:id="temp_special_garage_specialItems" layoutX="635.0" layoutY="120.0" styleClass="text-field" stylesheets="@master.css" />
-      <TextField id="temp_caller_id" fx:id="temp_special_garage_owner" layoutX="196.0" layoutY="120.0" styleClass="text-field" stylesheets="@master.css" />
+      <TextField id="temp_caller_id" fx:id="temp_special_garage_specialItems" layoutX="635.0" layoutY="120.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="temp_special_garage_owner" layoutX="196.0" layoutY="120.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="196.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Owner" />
       <Text layoutX="196.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Locked" />
       <Text layoutX="635.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Special Items -&gt; separate by &quot;,&quot;" />
-      <TextArea id="temp_caller_id" fx:id="temp_special_garage_description" layoutX="196.0" layoutY="250.0" prefHeight="200.0" prefWidth="309.0" stylesheets="@master.css" />
-      <TextArea id="temp_caller_id" fx:id="temp_special_garage_history" layoutX="538.0" layoutY="250.0" prefHeight="200.0" prefWidth="309.0" stylesheets="@master.css" />
+      <TextArea id="temp_caller_id" fx:id="temp_special_garage_description" layoutX="196.0" layoutY="250.0" prefHeight="200.0" prefWidth="309.0" stylesheets="@../Assets/Css/master.css" />
+      <TextArea id="temp_caller_id" fx:id="temp_special_garage_history" layoutX="538.0" layoutY="250.0" prefHeight="200.0" prefWidth="309.0" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="196.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Description" />
       <Text layoutX="538.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="History" />
       <CheckBox fx:id="temp_special_garage_is_locked" layoutX="293.0" layoutY="196.0" mnemonicParsing="false" />

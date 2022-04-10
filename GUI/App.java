@@ -10,7 +10,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mainframe.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("./Views/mainframe.fxml"));
             Parent root = (Parent) fxmlLoader.load();
 
             Scene scene = new Scene(root);

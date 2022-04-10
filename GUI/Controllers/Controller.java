@@ -1,13 +1,10 @@
-package GUI;
+package GUI.Controllers;
 
 import Users.User;
 import Users.VIPUser;
 
 import java.util.Scanner;
 import java.util.Timer;
-
-import GUI.App;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -205,7 +202,7 @@ public class Controller implements Initializable {
         }
 
         public void switchToCallerDashboard() throws Exception {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("caller_dashboard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 fxmlLoader.setController("GUI.Controller.java");
                 Stage window = (Stage) loginCaller.getScene().getWindow();
@@ -213,27 +210,27 @@ public class Controller implements Initializable {
         }
 
         public void switchToAddUser() throws Exception {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_user.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_user.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage window = (Stage) AddUserButton.getScene().getWindow();
                 window.setScene(new Scene(root));
         }
 
         public void switchToAddGarage() throws Exception {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_garages.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_garages.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage window = (Stage) AddGarageButton.getScene().getWindow();
                 window.setScene(new Scene(root));
         }
         public void switchToAddSpecialGarages() throws Exception {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_special_garages.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_special_garages.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
                 window.setScene(new Scene(root));
         }
 
         public void switchToAddVIPUsers() throws Exception {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add_vip_user.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_vip_user.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage window = (Stage) AddVIPUserButton.getScene().getWindow();
                 window.setScene(new Scene(root));
