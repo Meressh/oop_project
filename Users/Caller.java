@@ -25,6 +25,7 @@ public class Caller extends Being {
     public String getID() {
         return "Meno Vyvolavaca je " + ID;
     }
+    public static
 
     // Start Auction
     public void StartAuction() {
