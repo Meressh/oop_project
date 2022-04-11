@@ -3,7 +3,7 @@ package Storages;
 public class Storage {
 
     private String OldOwner; // Old Owner -> but not current owner
-    private String Name; // Old Owner -> but not current owner
+    private String Name; // Name of storage
     private String Owner; // Current Owner
     private Boolean Locked; // If is Locked or Not
     private String Description; // Description of Storage
@@ -12,7 +12,7 @@ public class Storage {
     private Integer MinimumPrice; // Minimum price of storage
     private Integer price; // Current price of storage
 
-    public Storage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice) {
+    public Storage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
         OldOwner = old_owner;
         Owner = owner;
         Locked = locked;
@@ -20,6 +20,7 @@ public class Storage {
         Size = size;
         Sold = sold;
         MinimumPrice = minimumprice;
+        Name = name;
     }
 
     // ?? Setters

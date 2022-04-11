@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AddGaragesController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
@@ -38,5 +38,7 @@
       <Text layoutX="194.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Description" />
       <CheckBox fx:id="temp_garage_is_locked" layoutX="265.0" layoutY="171.0" mnemonicParsing="false" />
       <Text layoutX="126.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add garages" />
+      <TextField id="temp_caller_id" fx:id="temp_garage_name" layoutX="636.0" layoutY="171.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <Text layoutX="636.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
    </children>
 </Pane>

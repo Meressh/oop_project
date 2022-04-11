@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AddVipUserController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
@@ -30,13 +30,13 @@
       <Button fx:id="loginCaller" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Spät" />
       <TextField fx:id="userVIPAddError" layoutX="415.0" layoutY="82.0" prefHeight="22.0" prefWidth="228.0" />
       <Text layoutX="122.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add VIP User" />
-      <TextField id="temp_caller_id" fx:id="user_address" layoutX="637.0" layoutY="121.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="vip_address" layoutX="637.0" layoutY="121.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="637.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-      <TextField id="temp_caller_id" fx:id="user_state" layoutX="637.0" layoutY="189.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="vip_state" layoutX="637.0" layoutY="189.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="637.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-      <TextField id="temp_caller_id" fx:id="user_region" layoutX="190.0" layoutY="189.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="vip_region" layoutX="190.0" layoutY="189.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="190.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
-      <TextField id="temp_caller_id" fx:id="user_psc" layoutX="190.0" layoutY="121.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
+      <TextField id="temp_caller_id" fx:id="vip_psc" layoutX="190.0" layoutY="121.0" styleClass="text-field" stylesheets="@../Assets/Css/master.css" />
       <Text layoutX="190.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PSC" />
    </children>
 </Pane>

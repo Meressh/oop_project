@@ -62,16 +62,16 @@ public class Caller extends Being {
         return vipUser;
     }
 
-    public Garage AddGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice) {
+    public Garage AddGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
 
-        Garage garage = new Garage(old_owner, owner, locked, description, size, sold, minimumprice);
+        Garage garage = new Garage(old_owner, owner, locked, description, size, sold, minimumprice, name);
 
         return garage;
     }
 
-    public SpecialGarage AddSpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice) {
+    public SpecialGarage AddSpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
         
-        SpecialGarage special_garage = new SpecialGarage(old_owner, owner, locked, description, size, sold, minimumprice);
+        SpecialGarage special_garage = new SpecialGarage(old_owner, owner, locked, description, size, sold, minimumprice, name);
 
         return special_garage;
 
