@@ -72,8 +72,6 @@ public class Config {
         return true;
     }
     
-    
-    
     public static void createCaller(String id, String name, String psc, String adress, String region, String state) throws Exception {
         caller = new Caller(id, name, psc, adress, region, state);
     }
@@ -113,5 +111,66 @@ public class Config {
         
         ActiveNumberOfStoragesSpecial++;
         AllTimeStoragesSpecial++;
+    }
+
+    public static boolean addBid(String garage, String id_user, Integer price){
+        //Check variables
+        Integer check_garage = 0;
+        Integer check_users= 0;
+
+        //??Users
+        for (int i = 0; i < Users.size(); i++) {
+            if(Users.get(i).getName().equals(id_user)){
+                check_users = 1;
+            }
+        }
+
+        if(check_users == 0){
+            for (int i = 0; i < VIPUsers.size(); i++) {
+                if (VIPUsers.get(i).getName().equals(id_user)) {
+                    check_users = 1;
+                }
+            }
+        }
+
+        if(check_users == 0){
+            return false;
+        }
+
+        //??Garages
+        for (int i = 0; i < Garages.size(); i++) {
+            if (Garages.get(i).getName().equals(garage)) {
+
+                if(Garages.get(i).getMinimumPrice() > price){
+                    return false;
+                }
+
+                Garages.get(i).setOwner(id_user);
+                Garages.get(i).setPrice(price);
+
+                check_garage = 1;
+            }
+        }
+        if(check_garage == 0){
+            for (int i = 0; i < SpecialGarages.size(); i++) {
+                if (SpecialGarages.get(i).getName().equals(garage)) {
+
+                    if (SpecialGarages.get(i).getMinimumPrice() > price) {
+                        return false;
+                    }
+
+                    SpecialGarages.get(i).setOwner(id_user);
+                    SpecialGarages.get(i).setPrice(price);
+
+                    check_garage = 1;
+                }
+            }
+        }
+
+        if (check_garage == 0) {
+            return false;
+        }
+
+        return true;
     }
 }

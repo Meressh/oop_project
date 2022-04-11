@@ -12,9 +12,7 @@ public class App extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("./Views/mainframe.fxml"));
             Parent root = (Parent) fxmlLoader.load();
-
             Scene scene = new Scene(root);
-
             primaryStage.setTitle("Aukcia zabudnutych skladov");
             primaryStage.setScene(scene);
             primaryStage.show();

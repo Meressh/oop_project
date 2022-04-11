@@ -21,6 +21,7 @@ public class Storage {
         Sold = sold;
         MinimumPrice = minimumprice;
         Name = name;
+        price = minimumprice;
     }
 
     // ?? Setters

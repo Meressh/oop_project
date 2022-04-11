@@ -25,7 +25,10 @@ public class Caller extends Being {
     public String getID() {
         return "Meno Vyvolavaca je " + ID;
     }
-    public static
+
+    public static void Bid(){
+        // ++ prida viac penazi za prihodenie
+    }
 
     // Start Auction
     public void StartAuction() {

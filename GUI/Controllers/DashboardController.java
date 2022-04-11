@@ -44,7 +44,7 @@ public class DashboardController implements Initializable {
     public ListView<String> garageList;
     @FXML
     public ListView<String> specialgaragesList;
-
+    
     // Add buttons in Caller dashboard
     @FXML
     private Button AddUserButton;
@@ -54,52 +54,72 @@ public class DashboardController implements Initializable {
     private Button AddSpecialGaragesButton;
     @FXML
     private Button AddGarageButton;
-
-
+    @FXML
+    private Button StartAuction;
+    @FXML
+    private Button switchToDashboard;
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         for (int i = 0; i < Config.Users.size(); i++) {
             userList.getItems().add(Config.Users.get(i).getName());
         }
-
+        
         for (int i = 0; i < Config.VIPUsers.size(); i++) {
             vipuserList.getItems().add(Config.VIPUsers.get(i).getName());
         }
-
+        
         for (int i = 0; i < Config.Garages.size(); i++) {
             garageList.getItems().add(Config.Garages.get(i).getName());
         }
-
+        
         for (int i = 0; i < Config.SpecialGarages.size(); i++) {
             specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
         }
     }
+    
+    public void switchToCallerDashboard() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) switchToDashboard.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
+    public void startAuction() throws Exception {
+        Config.Active = true;
+        Config.Auctions = Config.Auctions + 1;
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) StartAuction.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
 
     public void switchToAddUser() throws Exception {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_user.fxml"));
-    Parent root = (Parent) fxmlLoader.load();
-    Stage window = (Stage) AddUserButton.getScene().getWindow();
-    window.setScene(new Scene(root));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_user.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) AddUserButton.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
-
+    
     public void switchToAddGarage() throws Exception {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_garages.fxml"));
-    Parent root = (Parent) fxmlLoader.load();
-    Stage window = (Stage) AddGarageButton.getScene().getWindow();
-    window.setScene(new Scene(root));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_garages.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) AddGarageButton.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
-
+    
     public void switchToAddSpecialGarages() throws Exception {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_special_garages.fxml"));
-    Parent root = (Parent) fxmlLoader.load();
-    Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
-    window.setScene(new Scene(root));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_special_garages.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
-
+    
     public void switchToAddVIPUsers() throws Exception {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_vip_user.fxml"));
-    Parent root = (Parent) fxmlLoader.load();
-    Stage window = (Stage) AddVIPUserButton.getScene().getWindow();
-    window.setScene(new Scene(root));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_vip_user.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        Stage window = (Stage) AddVIPUserButton.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
 }
