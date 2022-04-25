@@ -5,6 +5,7 @@ import Users.VIPUser;
 
 import java.util.Scanner;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import GUI.Config.Config;
 
@@ -54,11 +55,16 @@ public class AuctionController implements Initializable {
 
     @FXML
     private TextField bidInfo;
+    @FXML
+    private TextField secondsShow;
 
     @FXML
     private Button switchToDashboard;
     @FXML
     private Button closeAuction;
+
+    Integer second = 35;
+    Timer timer;
 
     public void bid(ActionEvent event) {
         try {
@@ -77,12 +83,12 @@ public class AuctionController implements Initializable {
 
             if (!name_of_garage.getText().isEmpty() && !id_of_user.getText().isEmpty() && !price.getText().isEmpty() && Config.isNumeric(price.getText())) {
 
-                Boolean check= Config.addBid(name_of_garage.getText(), id_of_user.getText(), Integer.parseInt(price.getText()));
+                Boolean check = Config.addBid(name_of_garage.getText(), id_of_user.getText(), Integer.parseInt(price.getText()));
 
-                if(check){
+                if (check) {
                     bidError.setText("Bid added successfully");
                 }
-                else{
+                else {
                     bidError.setText("Bid not added");
                 }
 
@@ -104,6 +110,45 @@ public class AuctionController implements Initializable {
         for (int i = 0; i < Config.SpecialGarages.size(); i++) {
             specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
         }
+
+        timer = new Timer();
+        timer.schedule(new printSeconds(), 0, 1000);
+
+        // new java.util.Timer().schedule(
+        //         new java.util.TimerTask() {
+        //             @Override
+        //             public void run() {
+        //                 System.out.println("Marek");
+        //             }
+        //         },
+        //         35000);
+    }
+    
+    class printSeconds extends TimerTask {
+        public void run() {
+            //Print seconds
+            System.out.println(second);
+            secondsShow.setText(Integer.toString(second));
+            
+            second--;
+
+            System.out.println(Config.Active);
+
+            //Stop timer
+            if(second == 0) {
+
+                try {
+                    CloseAuction();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+                
+
+                timer.cancel();
+            }
+
+        }
     }
     
     public void switchToCallerDashboard() throws Exception {
@@ -112,12 +157,16 @@ public class AuctionController implements Initializable {
         Stage window = (Stage) switchToDashboard.getScene().getWindow();
         window.setScene(new Scene(root));
     }
-    
+
     public void CloseAuction() throws Exception {
         Config.Active = false;
         bidInfo.setText("Auction was closed");
+        timer.cancel();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction.fxml"));
+        Config.Garages.clear();
+        Config.SpecialGarages.clear();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction_closed.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage window = (Stage) closeAuction.getScene().getWindow();
         window.setScene(new Scene(root));

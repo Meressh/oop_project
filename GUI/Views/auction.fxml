@@ -39,5 +39,7 @@
       <TextField fx:id="bidError" layoutX="526.0" layoutY="73.0" prefHeight="22.0" prefWidth="212.0" />
       <Button fx:id="closeAuction" layoutX="886.0" layoutY="106.0" mnemonicParsing="false" onAction="#CloseAuction" text="Close Auction" />
       <TextField fx:id="bidInfo" layoutX="818.0" layoutY="69.0" prefHeight="22.0" prefWidth="212.0" />
+      <TextField fx:id="secondsShow" layoutX="964.0" layoutY="149.0" prefHeight="30.0" prefWidth="66.0" />
+      <Text layoutX="821.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auction ends in:" wrappingWidth="130.56705856323242" />
    </children>
 </Pane>
