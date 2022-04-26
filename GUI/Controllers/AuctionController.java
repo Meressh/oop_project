@@ -162,6 +162,7 @@ public class AuctionController implements Initializable {
         Config.Active = false;
         bidInfo.setText("Auction was closed");
         timer.cancel();
+        
 
         Config.Garages.clear();
         Config.SpecialGarages.clear();

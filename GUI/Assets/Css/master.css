@@ -45,6 +45,11 @@
     -fx-text-fill: rgb(0, 135, 40);
 }
 
+#small_amout_users {
+    -fx-text-fill: rgb(135, 0, 0);
+    -fx-font-size: 8pt;
+}
+
 #textarea {
     -fx-background-color: #fff;
     -fx-border-width: 2 2 2 2;
