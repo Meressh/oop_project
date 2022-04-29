@@ -55,14 +55,16 @@ public class AddUserController {
     private Button loginCaller;
 
     public void createUser(ActionEvent event) {
+        // Try catch exception
         try {
             // Add VIP User
             if (temp_user_name.getText().isEmpty()) {
-                userAddError.setText("Please enter a valid Name");
+                throw new Exception("Please enter a valid Name");
+                // userAddError.setText();
             }
             
             if (temp_user_id.getText().isEmpty()) {
-                userAddError.setText("Please enter a valid ID");
+                throw new Exception("Please enter a valid ID");
             }
             
             if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
@@ -73,7 +75,7 @@ public class AddUserController {
             }
         }
         catch (Exception e) {
-            userAddError.setText("Some Error was made");
+            userAddError.setText(e.getMessage());
         }
     }
 

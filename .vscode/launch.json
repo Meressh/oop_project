@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "GUI.App",
+            "projectName": "oop_project_b97b5d28"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",
@@ -12,8 +19,8 @@
             "jdkPath": "${env:JAVA_HOME}/bin",
             "cwd": "${fileDirname}",
             "startupClass": "${fileBasenameNoExtension}",
-            // "vmArgs": "--module-path /Library/Java/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            "vmArgs": "--module-path /home/marek/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path /Library/Java/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            // "vmArgs": "--module-path /home/marek/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml",
             "classpath": [
                 ".",
                 "${fileDirname}"

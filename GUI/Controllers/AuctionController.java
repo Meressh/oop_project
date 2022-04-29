@@ -124,30 +124,34 @@ public class AuctionController implements Initializable {
         //         35000);
     }
     
-    class printSeconds extends TimerTask {
+    class runThread extends Thread{
         public void run() {
-            //Print seconds
+            // Print seconds
             System.out.println(second);
             secondsShow.setText(Integer.toString(second));
-            
+
             second--;
 
             System.out.println(Config.Active);
 
-            //Stop timer
-            if(second == 0) {
-
+            // Stop timer
+            if (second == 0) {
+                // Exception -- mimoriadne osetrenie
                 try {
                     CloseAuction();
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                 }
-                
 
                 timer.cancel();
             }
-
+        }
+    }
+    class printSeconds extends TimerTask {
+        public void run() {
+            runThread thread = new runThread();
+            thread.start();
         }
     }
     
