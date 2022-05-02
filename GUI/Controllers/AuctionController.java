@@ -123,17 +123,28 @@ public class AuctionController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         bidInfo.setText("Auction is Active");
-
         //!! Lambda
         //Lambda vyrazy
         Config.Garages.forEach((garage) -> {
-            garageList.getItems().add(garage.getName());
+            //!! RTTI
+            if(garage instanceof Garage){
+                garageList.getItems().add(garage.getName());
+            }else{
+                System.err.println("It is not a garage");
+            }
+
+            // garageList.getItems().add(garage.getName());
         });
 
         // !! Lambda
         // Lambda vyrazy
         Config.SpecialGarages.forEach((garage) -> {
-            garageList.getItems().add(garage.getName());
+            // !! RTTI
+            if (garage instanceof SpecialGarage) {
+                garageList.getItems().add(garage.getName());
+            } else {
+                System.err.println("It is not a Special garage");
+            }
         });
         // for (int i = 0; i < Config.Garages.size(); i++) {
         //     garageList.getItems().add(Config.Garages.get(i).getName());

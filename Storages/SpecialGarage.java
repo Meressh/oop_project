@@ -3,7 +3,7 @@ package Storages;
 public class SpecialGarage extends Garage {
     private static String[] SpecialItems; // Special Items like Golden Fish and so
     private static String History; // Some History of Special Storage
-    
+
     public SpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
         super(old_owner,  owner,  locked,  description,  size,  sold, minimumprice, name);
     }
@@ -29,6 +29,6 @@ public class SpecialGarage extends Garage {
     // Prekonávanie metódov z triedy Garage
     @Override
     public Integer getMinimumPrice() {
-        return (MinimumPrice + 5);
+        return (main.MinimumPrice + 5);
     }
 }
