@@ -6,52 +6,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path /home/marek/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml",
+        },
+        {
+            "type": "java",
             "name": "Launch App",
             "request": "launch",
             "mainClass": "GUI.App",
-            "projectName": "oop_project_b97b5d28"
-        },
-        {
-            "name": "Java",
-            "type": "java",
-            "request": "launch",
-            "stopOnEntry": false,
-            "jdkPath": "${env:JAVA_HOME}/bin",
-            "cwd": "${fileDirname}",
-            "startupClass": "${fileBasenameNoExtension}",
-            "vmArgs": "--module-path /Library/Java/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            // "vmArgs": "--module-path /home/marek/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml",
-            "classpath": [
-                ".",
-                "${fileDirname}"
-            ]
-        },
-        {
-            "name": "Java Console App",
-            "type": "java",
-            "request": "launch",
-            "stopOnEntry": false,
-            "jdkPath": "${env:JAVA_HOME}/bin",
-            "cwd": "${fileDirname}",
-            "startupClass": "${fileBasenameNoExtension}",
-            "classpath": [
-                ".",
-                "${fileDirname}"
-            ],
-            "externalConsole": true
-        },
-        {
-            "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Launch Auction",
-            "request": "launch",
-            "mainClass": "Auction",
-            "projectName": "Project_1_school_github_7d42406"
+            "projectName": "oop_project_f0798436"
         }
     ]
 }

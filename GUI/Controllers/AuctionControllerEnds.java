@@ -57,7 +57,7 @@ public class AuctionControllerEnds implements Initializable {
             specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
         }
     }
-    
+    // Switch to caller dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();

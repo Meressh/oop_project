@@ -79,7 +79,7 @@ public class DashboardController implements Initializable {
             specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
         }
     }
-    
+    // Switch to Dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();
@@ -87,6 +87,7 @@ public class DashboardController implements Initializable {
         window.setScene(new Scene(root));
     }
 
+    // Start Auction
     public void startAuction() throws Exception {
         if(Config.Users.size() > 2){
             Config.Active = true;
@@ -100,28 +101,31 @@ public class DashboardController implements Initializable {
             small_amout_users.setText("Minimum of users is 2");
         }
     }
-
+    // Switch to Add user Dashboard
     public void switchToAddUser() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_user.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage window = (Stage) AddUserButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
-    
+
+    // Switch to Add garage Dashboard
     public void switchToAddGarage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_garages.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage window = (Stage) AddGarageButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
-    
+
+    // Switch to Add special garage Dashboard
     public void switchToAddSpecialGarages() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_special_garages.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage window = (Stage) AddSpecialGaragesButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
-    
+
+    // Switch to Add vip user Dashboard
     public void switchToAddVIPUsers() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/add_vip_user.fxml"));
         Parent root = (Parent) fxmlLoader.load();

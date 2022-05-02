@@ -54,6 +54,7 @@ public class AddUserController {
     @FXML
     private Button loginCaller;
 
+    //Create User
     public void createUser(ActionEvent event) {
         // Try catch exception
         try {
@@ -79,6 +80,7 @@ public class AddUserController {
         }
     }
 
+    // Switch to caller dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();

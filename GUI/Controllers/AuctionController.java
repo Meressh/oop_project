@@ -65,7 +65,8 @@ public class AuctionController implements Initializable {
 
     Integer second = 35;
     Timer timer;
-
+    
+    // Bidding
     public void bid(ActionEvent event) {
         try {
             // Add VIP User
@@ -124,6 +125,7 @@ public class AuctionController implements Initializable {
         //         35000);
     }
     
+    //!! Thread
     class runThread extends Thread{
         public void run() {
             // Print seconds
@@ -148,13 +150,15 @@ public class AuctionController implements Initializable {
             }
         }
     }
+    // Print seconds
     class printSeconds extends TimerTask {
         public void run() {
             runThread thread = new runThread();
             thread.start();
         }
     }
-    
+
+    // Switch to Dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();
@@ -162,6 +166,7 @@ public class AuctionController implements Initializable {
         window.setScene(new Scene(root));
     }
 
+    // Close Auction
     public void CloseAuction() throws Exception {
         Config.Active = false;
         bidInfo.setText("Auction was closed");

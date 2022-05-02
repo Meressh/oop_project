@@ -52,6 +52,7 @@ public class MainFrameController implements Initializable {
         // updateLists(userList, vipuserList, garageList, specialgaragesList);
     }
     
+    // Create caller
     public void createCaller(ActionEvent event) {
         try {
             if (temp_caller_name.getText().isEmpty()) {
@@ -77,7 +78,7 @@ public class MainFrameController implements Initializable {
             callerLoginError.setText("Some Error was made");
         }
     }
-    
+    // Switch to caller dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();

@@ -59,6 +59,7 @@ public class AddSpecialGarages {
     @FXML
     private Button loginCaller;
     
+    // Create special Garage
     public void createSpecialGarage(ActionEvent event) {
         try {
             // private CheckBox temp_special_garage_is_locked;
@@ -104,8 +105,9 @@ public class AddSpecialGarages {
                 specialGarageAddError.setText("Some Error was made");
             }
             
-        }
-        
+        }   
+
+        // Switch to caller dashboard
         public void switchToCallerDashboard() throws Exception {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
             Parent root = (Parent) fxmlLoader.load();

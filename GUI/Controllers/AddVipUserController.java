@@ -54,7 +54,7 @@ public class AddVipUserController {
     @FXML
     private Button loginCaller;
     
-    
+    //Create VIP User
     public void createVIPUser(ActionEvent event) {
         try {
             if (temp_userVIP_name.getText().isEmpty()) {
@@ -76,7 +76,8 @@ public class AddVipUserController {
             userVIPAddError.setText("Some Error was made");
         }
     }
-    
+
+    // Switch to caller dashboard
     public void switchToCallerDashboard() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
         Parent root = (Parent) fxmlLoader.load();
