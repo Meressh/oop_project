@@ -1,7 +1,5 @@
 package Users;
 
-import java.util.Scanner;
-
 import Storages.Garage;
 import Storages.SpecialGarage;
 
