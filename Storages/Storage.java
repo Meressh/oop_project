@@ -1,27 +1,34 @@
 package Storages;
 
-public class Storage {
+public class Storage implements implements_get, implements_set  {
 
     private String OldOwner; // Old Owner -> but not current owner
-    private String Name; // Name of storage
     private String Owner; // Current Owner
     private Boolean Locked; // If is Locked or Not
-    private String Description; // Description of Storage
     private Integer Size; // Size of storage in m2
     private Boolean Sold; // Check if storage is sold
-    private Integer MinimumPrice; // Minimum price of storage
-    private Integer price; // Current price of storage
+
+    /**
+     * Main 
+     */
+    //!! vhniezdene triedy
+    public static class main {
+        protected static String Name; // Name of storage
+        protected static String Description; // Description of Storage
+        protected static Integer MinimumPrice; // Minimum price of storage
+        protected static Integer price; // Current price of storage
+    }
 
     public Storage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
         OldOwner = old_owner;
         Owner = owner;
         Locked = locked;
-        Description = description;
+        main.Description = description;
         Size = size;
         Sold = sold;
-        MinimumPrice = minimumprice;
-        Name = name;
-        price = minimumprice;
+        main.MinimumPrice = minimumprice;
+        main.Name = name;
+        main.price = minimumprice;
     }
 
     // ?? Setters
@@ -38,7 +45,7 @@ public class Storage {
     }
 
     public void setDescription(String setdescription) {
-        Description = setdescription;
+        main.Description = setdescription;
     }
 
     public void setSize(Integer setsize) {
@@ -50,16 +57,20 @@ public class Storage {
     }
 
     public void setMinimumPrice(Integer minimumprice) {
-        MinimumPrice = minimumprice;
+        main.MinimumPrice = minimumprice;
     }
 
     public void setPrice(Integer Price) {
-        price = Price;
+        main.price = Price;
+    }
+    
+    public void setMinPrice(Integer Price) {
+        main.MinimumPrice = Price;
     }
 
     // ?? Getters
     public Integer getMinimumPrice() {
-        return MinimumPrice;
+        return main.MinimumPrice;
     }
 
     public String getOldOwner() {
@@ -75,7 +86,7 @@ public class Storage {
     }
 
     public String getDescription() {
-        return Description;
+        return main.Description;
     }
 
     public Integer getSize() {
@@ -87,15 +98,15 @@ public class Storage {
     }
 
     public Integer setSold() {
-        return MinimumPrice;
+        return main.MinimumPrice;
     }
 
     public String getName() {
-        return Name;
+        return main.Name;
     }
 
     public Integer getPrice() {
-        return price;
+        return main.price;
     }
 
 }

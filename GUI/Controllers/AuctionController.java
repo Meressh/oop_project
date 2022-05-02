@@ -49,7 +49,17 @@ public class AuctionController implements Initializable {
     @FXML
     private TextField price;
     @FXML
+    private TextField name_find;
+    @FXML
+    private TextField price_find;
+    @FXML
+    private TextField description_find;
+    @FXML
+    private TextField find_data;
+    @FXML
     private Button Bid;
+    @FXML
+    private Button find;
     @FXML
     private TextField bidError;
 
@@ -100,17 +110,37 @@ public class AuctionController implements Initializable {
         }
     }
 
+    public void find(ActionEvent event){
+        for (int i = 0; i < Config.Garages.size(); i++) {
+            if(find_data.getText().equals(Config.Garages.get(i).getName())){
+                name_find.setText(Config.Garages.get(i).getName());
+                price_find.setText("Cena: " + Config.Garages.get(i).getMinimumPrice());
+                description_find.setText(Config.Garages.get(i).getDescription());
+            }
+        }
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         bidInfo.setText("Auction is Active");
 
-        for (int i = 0; i < Config.Garages.size(); i++) {
-            garageList.getItems().add(Config.Garages.get(i).getName());
-        }
+        //!! Lambda
+        //Lambda vyrazy
+        Config.Garages.forEach((garage) -> {
+            garageList.getItems().add(garage.getName());
+        });
 
-        for (int i = 0; i < Config.SpecialGarages.size(); i++) {
-            specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
-        }
+        // !! Lambda
+        // Lambda vyrazy
+        Config.SpecialGarages.forEach((garage) -> {
+            garageList.getItems().add(garage.getName());
+        });
+        // for (int i = 0; i < Config.Garages.size(); i++) {
+        //     garageList.getItems().add(Config.Garages.get(i).getName());
+        // }
+        // for (int i = 0; i < Config.SpecialGarages.size(); i++) {
+        //     specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
+        // }
 
         timer = new Timer();
         timer.schedule(new printSeconds(), 0, 1000);

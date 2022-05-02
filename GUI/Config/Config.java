@@ -117,12 +117,16 @@ public class Config {
         for (int i = 0; i < Garages.size(); i++) {
             if (Garages.get(i).getName().equals(garage)) {
 
-                if(Garages.get(i).getMinimumPrice() > price){
+                if(Garages.get(i).getMinimumPrice() >= price){
                     return false;
                 }
 
                 Garages.get(i).setOwner(id_user);
-                Garages.get(i).setPrice(price);
+                Garages.get(i).setMinPrice(price);
+
+                System.out.println(Garages.get(i).getName());
+                System.out.println(Garages.get(i).getOwner());
+                System.out.println(Garages.get(i).getPrice());
 
                 check_garage = 1;
             }
@@ -131,12 +135,12 @@ public class Config {
             for (int i = 0; i < SpecialGarages.size(); i++) {
                 if (SpecialGarages.get(i).getName().equals(garage)) {
 
-                    if (SpecialGarages.get(i).getMinimumPrice() > price) {
+                    if (SpecialGarages.get(i).getMinimumPrice() >= price) {
                         return false;
                     }
 
                     SpecialGarages.get(i).setOwner(id_user);
-                    SpecialGarages.get(i).setPrice(price);
+                    SpecialGarages.get(i).setMinPrice(price);
 
                     check_garage = 1;
                 }

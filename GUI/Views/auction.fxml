@@ -33,7 +33,7 @@
       <TextField fx:id="id_of_user" layoutX="526.0" layoutY="172.0" />
       <TextField fx:id="price" layoutX="526.0" layoutY="231.0" />
       <Button fx:id="Bid" layoutX="590.0" layoutY="276.0" mnemonicParsing="false" onAction="#bid" text="Bid" />
-      <Text layoutX="526.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of garage" wrappingWidth="130.56705856323242" />
+      <Text layoutX="782.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Details" wrappingWidth="130.56705856323242" />
       <Text layoutX="526.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Usera" wrappingWidth="130.56705856323242" />
       <Text layoutX="526.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="130.56705856323242" />
       <TextField fx:id="bidError" layoutX="526.0" layoutY="73.0" prefHeight="22.0" prefWidth="212.0" />
@@ -41,5 +41,11 @@
       <TextField fx:id="bidInfo" layoutX="818.0" layoutY="69.0" prefHeight="22.0" prefWidth="212.0" />
       <TextField fx:id="secondsShow" layoutX="964.0" layoutY="149.0" prefHeight="30.0" prefWidth="66.0" />
       <Text layoutX="821.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auction ends in:" wrappingWidth="130.56705856323242" />
+      <TextField fx:id="find_data" layoutX="782.0" layoutY="233.0" stylesheets="@../Assets/Css/master.css" />
+      <Text layoutX="526.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of garage" wrappingWidth="130.56705856323242" />
+      <Button fx:id="find" layoutX="784.0" layoutY="268.0" mnemonicParsing="false" onAction="#find" text="Find" />
+      <TextField fx:id="name_find" layoutX="780.0" layoutY="305.0" prefHeight="22.0" prefWidth="212.0" />
+      <TextField fx:id="price_find" layoutX="780.0" layoutY="344.0" prefHeight="22.0" prefWidth="212.0" />
+      <TextField fx:id="description_find" layoutX="780.0" layoutY="386.0" prefHeight="66.0" prefWidth="212.0" />
    </children>
 </Pane>
