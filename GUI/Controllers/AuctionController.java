@@ -110,14 +110,31 @@ public class AuctionController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        bidInfo.setText("Auction is Active");
-        //!! Lambda
-        //Lambda vyrazy
+        if(!Config.Active){
+            Config.Active = true;
+            Config.Auctions = Config.Auctions + 1;
+
+            bidInfo.setText("Auction is Active");
+            timer = new Timer();
+            timer.schedule(new printSeconds(), 0, 1000);
+
+        // new java.util.Timer().schedule(
+        //         new java.util.TimerTask() {
+        //             @Override
+        //             public void run() {
+        //                 System.out.println("Marek");
+        //             }
+        //         },
+        //         35000); 
+        }
+
+        // !! Lambda
+        // Lambda vyrazy
         Config.Garages.forEach((garage) -> {
-            //!! RTTI
-            if(garage instanceof Garage){
+            // !! RTTI
+            if (garage instanceof Garage) {
                 garageList.getItems().add(garage.getName());
-            }else{
+            } else {
                 System.err.println("It is not a garage");
             }
 
@@ -135,23 +152,12 @@ public class AuctionController implements Initializable {
             }
         });
         // for (int i = 0; i < Config.Garages.size(); i++) {
-        //     garageList.getItems().add(Config.Garages.get(i).getName());
+        // garageList.getItems().add(Config.Garages.get(i).getName());
         // }
         // for (int i = 0; i < Config.SpecialGarages.size(); i++) {
-        //     specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
+        // specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
         // }
 
-        timer = new Timer();
-        timer.schedule(new printSeconds(), 0, 1000);
-
-        // new java.util.Timer().schedule(
-        //         new java.util.TimerTask() {
-        //             @Override
-        //             public void run() {
-        //                 System.out.println("Marek");
-        //             }
-        //         },
-        //         35000);
     }
     
     //!! Thread
@@ -159,7 +165,9 @@ public class AuctionController implements Initializable {
         public void run() {
             // Print seconds
             System.out.println(second);
-            secondsShow.setText(Integer.toString(second));
+            
+            Config.time_number = Integer.toString(second);
+            secondsShow.setText(Config.time_number);
 
             second--;
 

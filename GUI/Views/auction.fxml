@@ -11,14 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="1038.0" stylesheets="@../Assets/Css/master.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AuctionController">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="1038.0">
-        <items>
-          <Button fx:id="switchToDashboard" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Caller Dashboard" />
-            <Button mnemonicParsing="false" text="Auction" />
-            <Button mnemonicParsing="false" text="Stats" />
-            <Button mnemonicParsing="false" text="All Time Products" />
-        </items>
-      </ToolBar>
+      <ToolBar prefHeight="40.0" prefWidth="1038.0" />
       <Label layoutX="382.0" layoutY="74.0" text="Label" />
       <Text layoutX="10.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garages" wrappingWidth="65.56705856323242" />
       <ListView fx:id="garageList" layoutY="75.0" prefHeight="386.0" prefWidth="242.0" />

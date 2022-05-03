@@ -13,7 +13,9 @@ import Users.Caller;
 
 public class Config {
     public static Caller caller;
-    public Timer time;
+    public static Timer time;
+
+    public static String time_number;
     
     public static int Auctions; // How many auction have been executed "today"
     public static int ActiveNumberOfUsers = 0; // How many users are now bidding

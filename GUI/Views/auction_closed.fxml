@@ -13,9 +13,7 @@
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
           <Button fx:id="switchToDashboard" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Caller Dashboard" />
-            <Button mnemonicParsing="false" text="Auction" />
             <Button mnemonicParsing="false" text="Stats" />
-            <Button mnemonicParsing="false" text="All Time Products" />
         </items>
       </ToolBar>
       <Label layoutX="382.0" layoutY="74.0" text="Label" />

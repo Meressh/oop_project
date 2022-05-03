@@ -12,9 +12,7 @@
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
           <Button mnemonicParsing="false" text="Caller" />
-            <Button mnemonicParsing="false" text="Auction" />
-            <Button mnemonicParsing="false" text="Stats" />
-            <Button mnemonicParsing="false" text="All Time Products" />
+          <Button mnemonicParsing="false" text="Auction before" />
             <Button mnemonicParsing="false" text="Start Auction" />
         </items>
       </ToolBar>

@@ -44,6 +44,8 @@ public class DashboardController implements Initializable {
     @FXML
     private Button switchToDashboard;
     @FXML
+    private Button Auction;
+    @FXML
     private TextField small_amout_users;
     
     @Override
@@ -75,8 +77,7 @@ public class DashboardController implements Initializable {
     // Start Auction
     public void startAuction() throws Exception {
         if(Config.Users.size() > 2){
-            Config.Active = true;
-            Config.Auctions = Config.Auctions + 1;
+          
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -84,6 +85,17 @@ public class DashboardController implements Initializable {
             window.setScene(new Scene(root));
         }else{
             small_amout_users.setText("Minimum of users is 2");
+        }
+    }
+    
+    public void Auction() throws Exception {
+        if (Config.Active) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage window = (Stage) StartAuction.getScene().getWindow();
+            window.setScene(new Scene(root));
+        } else {
+            small_amout_users.setText("Auciton did not start");
         }
     }
     // Switch to Add user Dashboard

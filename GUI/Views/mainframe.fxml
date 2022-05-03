@@ -13,9 +13,7 @@
       <ToolBar prefHeight="40.0" prefWidth="971.0">
         <items>
           <Button mnemonicParsing="false" text="Caller" />
-            <Button mnemonicParsing="false" text="Auction" />
-            <Button mnemonicParsing="false" text="Stats" />
-            <Button mnemonicParsing="false" text="All Time Products" />
+          <Button mnemonicParsing="false" text="Auction before" />
         </items>
       </ToolBar>
       <TextField fx:id="temp_caller_id" layoutX="382.0" layoutY="110.0" />

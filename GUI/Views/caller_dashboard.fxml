@@ -13,9 +13,7 @@
       <ToolBar prefHeight="40.0" prefWidth="1038.0">
         <items>
           <Button fx:id="switchToDashboard" mnemonicParsing="false" onAction="#switchToCallerDashboard" text="Caller" />
-            <Button mnemonicParsing="false" text="Auction" />
-            <Button mnemonicParsing="false" text="Stats" />
-            <Button mnemonicParsing="false" text="All Time Products" />
+          <Button mnemonicParsing="false" text="Auction before" />
             <Button fx:id="StartAuction" mnemonicParsing="false" onAction="#startAuction" text="Start Auction" />
             <TextField fx:id="small_amout_users" />
         </items>
