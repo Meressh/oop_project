@@ -1,6 +1,6 @@
 package Storages;
 
-public class SpecialGarage extends Garage {
+public class SpecialGarage extends Garage implements SpecialGarageBase {
     private static String[] SpecialItems; // Special Items like Golden Fish and so
     private static String History; // Some History of Special Storage
 

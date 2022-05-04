@@ -5,7 +5,6 @@ import java.util.TimerTask;
 
 import GUI.Config.Config;
 
-
 import Storages.Garage;
 import Storages.SpecialGarage;
 
@@ -63,7 +62,7 @@ public class AuctionController implements Initializable {
 
     Integer second = 35;
     Timer timer;
-    
+
     // Bidding
     public void bid(ActionEvent event) {
         try {
@@ -80,27 +79,27 @@ public class AuctionController implements Initializable {
                 bidError.setText("Please enter a valid price");
             }
 
-            if (!name_of_garage.getText().isEmpty() && !id_of_user.getText().isEmpty() && !price.getText().isEmpty() && Config.isNumeric(price.getText())) {
+            if (!name_of_garage.getText().isEmpty() && !id_of_user.getText().isEmpty() && !price.getText().isEmpty()
+                    && Config.isNumeric(price.getText())) {
 
-                Boolean check = Config.addBid(name_of_garage.getText(), id_of_user.getText(), Integer.parseInt(price.getText()));
+                Boolean check = Config.addBid(name_of_garage.getText(), id_of_user.getText(),
+                        Integer.parseInt(price.getText()));
 
                 if (check) {
                     bidError.setText("Bid added successfully");
-                }
-                else {
+                } else {
                     bidError.setText("Bid not added");
                 }
 
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             bidError.setText("Some Error was made");
         }
     }
 
-    public void find(ActionEvent event){
+    public void find(ActionEvent event) {
         for (int i = 0; i < Config.Garages.size(); i++) {
-            if(find_data.getText().equals(Config.Garages.get(i).getName())){
+            if (find_data.getText().equals(Config.Garages.get(i).getName())) {
                 name_find.setText(Config.Garages.get(i).getName());
                 price_find.setText("Cena: " + Config.Garages.get(i).getMinimumPrice());
                 description_find.setText(Config.Garages.get(i).getDescription());
@@ -110,7 +109,7 @@ public class AuctionController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        if(!Config.Active){
+        if (!Config.Active) {
             Config.Active = true;
             Config.Auctions = Config.Auctions + 1;
 
@@ -118,38 +117,27 @@ public class AuctionController implements Initializable {
             timer = new Timer();
             timer.schedule(new printSeconds(), 0, 1000);
 
-        // new java.util.Timer().schedule(
-        //         new java.util.TimerTask() {
-        //             @Override
-        //             public void run() {
-        //                 System.out.println("Marek");
-        //             }
-        //         },
-        //         35000); 
+            // new java.util.Timer().schedule(
+            // new java.util.TimerTask() {
+            // @Override
+            // public void run() {
+            // System.out.println("Marek");
+            // }
+            // },
+            // 35000);
         }
 
         // !! Lambda
         // Lambda vyrazy
         Config.Garages.forEach((garage) -> {
-            // !! RTTI
-            if (garage instanceof Garage) {
                 garageList.getItems().add(garage.getName());
-            } else {
-                System.err.println("It is not a garage");
-            }
-
             // garageList.getItems().add(garage.getName());
         });
 
         // !! Lambda
         // Lambda vyrazy
         Config.SpecialGarages.forEach((garage) -> {
-            // !! RTTI
-            if (garage instanceof SpecialGarage) {
                 garageList.getItems().add(garage.getName());
-            } else {
-                System.err.println("It is not a Special garage");
-            }
         });
         // for (int i = 0; i < Config.Garages.size(); i++) {
         // garageList.getItems().add(Config.Garages.get(i).getName());
@@ -159,13 +147,13 @@ public class AuctionController implements Initializable {
         // }
 
     }
-    
-    //!! Thread
-    class runThread extends Thread{
+
+    // !! Thread
+    class runThread extends Thread {
         public void run() {
             // Print seconds
             System.out.println(second);
-            
+
             Config.time_number = Integer.toString(second);
             secondsShow.setText(Config.time_number);
 
@@ -178,8 +166,7 @@ public class AuctionController implements Initializable {
                 // Exception -- mimoriadne osetrenie
                 try {
                     CloseAuction();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -187,6 +174,7 @@ public class AuctionController implements Initializable {
             }
         }
     }
+
     // Print seconds
     class printSeconds extends TimerTask {
         public void run() {
@@ -208,11 +196,11 @@ public class AuctionController implements Initializable {
         Config.Active = false;
         bidInfo.setText("Auction was closed");
         timer.cancel();
-        
 
         Config.Garages.clear();
         Config.SpecialGarages.clear();
-
+        
+        //!!RTTI
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction_closed.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage window = (Stage) closeAuction.getScene().getWindow();
