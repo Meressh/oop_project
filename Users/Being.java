@@ -1,5 +1,6 @@
 package Users;
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 
 import Storages.Garage;
@@ -9,9 +10,33 @@ public class Being {
     // !! Agregation
     Address address;
 
-    public static ArrayList<Garage> Garages = new ArrayList<Garage>(); // ArrayList
-    public String ID; // Identification Number
-    public String Name; // Name of Being
+    private static ArrayList<Garage> Garages = new ArrayList<Garage>(); // ArrayList
+    private String ID; // Identification Number
+    private String Name; // Name of Being
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public static ArrayList<Garage> getGarages() {
+        return Garages;
+    }
+
+    public static void setGarages(ArrayList<Garage> garages) {
+        Garages = garages;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
     public Being() {}
 

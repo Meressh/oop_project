@@ -36,6 +36,7 @@ public class AddUserController {
         // Try catch exception
         try {
             // Add VIP User
+            //!!prerobit exception na vlastne 
             if (temp_user_name.getText().isEmpty()) {
                 throw new Exception("Please enter a valid Name");
                 // userAddError.setText();
@@ -46,10 +47,24 @@ public class AddUserController {
             }
             
             if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
+                // Check for 
+                Boolean boolean1 = true;
 
-                Config.createUser(temp_user_id.getText(), temp_user_name.getText(), user_psc.getText(), user_address.getText(), user_region.getText(), user_state.getText());
+                for (int i = 0; i < Config.Users.size(); i++) {
 
-                userAddError.setText("User created");
+                    if(Config.Users.get(i).getID().equals(temp_user_id.getText()) ){
+                        userAddError.setText("ID of user already exists");
+                        boolean1 = false;
+                    }
+
+                }
+                if(boolean1){
+                    Config.createUser(temp_user_id.getText(), temp_user_name.getText(), user_psc.getText(),
+                            user_address.getText(), user_region.getText(), user_state.getText());
+
+                    userAddError.setText("User created");
+                }
+
             }
         }
         catch (Exception e) {

@@ -1,6 +1,6 @@
 package Storages;
 
-public class Storage implements implements_get, implements_set  {
+public class Storage implements implements_get, implements_set, StorageBase  {
 
     private String OldOwner; // Old Owner -> but not current owner
     private String Owner; // Current Owner

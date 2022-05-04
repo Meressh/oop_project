@@ -1,8 +1,8 @@
 package Storages;
 
 public class SpecialGarage extends Garage implements SpecialGarageBase {
-    private static String[] SpecialItems; // Special Items like Golden Fish and so
-    private static String History; // Some History of Special Storage
+    private String[] SpecialItems; // Special Items like Golden Fish and so
+    private String History; // Some History of Special Storage
 
     public SpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
         super(old_owner,  owner,  locked,  description,  size,  sold, minimumprice, name);

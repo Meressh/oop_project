@@ -14,11 +14,11 @@ public class VIPUser extends User {
     @Override
     // polymorfism
     public String getName() {
-        return "*****| Meno VIP Usera je " + Name + " |*****";
+        return "*****| Meno VIP Usera je " + this.getAdress() + " |*****";
     }
 
     @Override
     public String getID() {
-        return "*****| Meno VIP Usera je " + ID + " |*****";
+        return "*****| Meno VIP Usera je " + this.getName() + " |*****";
     }
 }

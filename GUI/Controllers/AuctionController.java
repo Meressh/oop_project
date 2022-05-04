@@ -84,7 +84,7 @@ public class AuctionController implements Initializable {
 
                 Boolean check = Config.addBid(name_of_garage.getText(), id_of_user.getText(),
                         Integer.parseInt(price.getText()));
-
+                
                 if (check) {
                     bidError.setText("Bid added successfully");
                 } else {

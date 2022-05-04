@@ -3,12 +3,13 @@ package Users;
 import Storages.Garage;
 import Storages.SpecialGarage;
 
-public class Caller extends Being {
+public class Caller extends Being implements CallerFunctions {
 
-    public Caller() {}
+    public Caller() {
+    }
 
-    public static String data_id;
-    public static String data_name;
+    private static String data_id;
+    private static String data_name;
 
     public Caller(String id, String name, String psc, String adress, String region, String state) {
         super(id, name, psc, adress, region, state);
@@ -17,14 +18,14 @@ public class Caller extends Being {
     @Override
     // polymorfism
     public String getName() {
-        return "Meno Vyvolavaca je " + Name;
+        return "Meno Vyvolavaca je " + this.getName();
     }
 
     public String getID() {
-        return "Meno Vyvolavaca je " + ID;
+        return "Meno Vyvolavaca je " + this.getID();
     }
 
-    public static void Bid(){
+    public static void Bid() {
         // ++ prida viac penazi za prihodenie
     }
 
@@ -50,30 +51,33 @@ public class Caller extends Being {
 
     }
 
-    public User AddUser(String id, String name, String psc, String adress,String region, String state) {
+    public User AddUser(String id, String name, String psc, String adress, String region, String state) {
 
         User user = new User(id, name, psc, adress, region, state);
 
         return user;
     }
 
-    public VIPUser AddVIPUser(String id, String name, String psc, String adress,String region, String state) {
+    public VIPUser AddVIPUser(String id, String name, String psc, String adress, String region, String state) {
 
         VIPUser vipUser = new VIPUser(id, name, psc, adress, region, state);
 
         return vipUser;
     }
 
-    public Garage AddGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
+    public Garage AddGarage(String old_owner, String owner, Boolean locked, String description, Integer size,
+            Boolean sold, Integer minimumprice, String name) {
 
         Garage garage = new Garage(old_owner, owner, locked, description, size, sold, minimumprice, name);
 
         return garage;
     }
 
-    public SpecialGarage AddSpecialGarage(String old_owner, String owner, Boolean locked, String description, Integer size, Boolean sold, Integer minimumprice, String name) {
-        
-        SpecialGarage special_garage = new SpecialGarage(old_owner, owner, locked, description, size, sold, minimumprice, name);
+    public SpecialGarage AddSpecialGarage(String old_owner, String owner, Boolean locked, String description,
+            Integer size, Boolean sold, Integer minimumprice, String name) {
+
+        SpecialGarage special_garage = new SpecialGarage(old_owner, owner, locked, description, size, sold,
+                minimumprice, name);
 
         return special_garage;
 

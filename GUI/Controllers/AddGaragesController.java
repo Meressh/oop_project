@@ -68,7 +68,7 @@ public class AddGaragesController {
                 }
             }
             catch (Exception e) {
-                GarageAddError.setText("Some Error was made");
+                GarageAddError.setText(e.getMessage());
             }
         }
         
