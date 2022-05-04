@@ -28,7 +28,7 @@ public class AuctionController implements Initializable {
     public ListView<String> garageList;
     @FXML
     public ListView<String> specialgaragesList;
-
+    
     @FXML
     private TextField name_of_garage;
     @FXML
@@ -49,20 +49,20 @@ public class AuctionController implements Initializable {
     private Button find;
     @FXML
     private TextField bidError;
-
+    
     @FXML
     private TextField bidInfo;
     @FXML
     private TextField secondsShow;
-
+    
     @FXML
     private Button switchToDashboard;
     @FXML
     private Button closeAuction;
-
+    
     Integer second = 35;
     Timer timer;
-
+    
     // Bidding
     public void bid(ActionEvent event) {
         try {
@@ -70,33 +70,33 @@ public class AuctionController implements Initializable {
             if (name_of_garage.getText().isEmpty()) {
                 bidError.setText("Please enter a valid Name of garage");
             }
-
+            
             if (id_of_user.getText().isEmpty()) {
                 bidError.setText("Please enter a valid ID of user");
             }
-
+            
             if (price.getText().isEmpty() || !Config.isNumeric(price.getText())) {
                 bidError.setText("Please enter a valid price");
             }
-
+            
             if (!name_of_garage.getText().isEmpty() && !id_of_user.getText().isEmpty() && !price.getText().isEmpty()
-                    && Config.isNumeric(price.getText())) {
-
+            && Config.isNumeric(price.getText())) {
+                
                 Boolean check = Config.addBid(name_of_garage.getText(), id_of_user.getText(),
-                        Integer.parseInt(price.getText()));
+                Integer.parseInt(price.getText()));
                 
                 if (check) {
                     bidError.setText("Bid added successfully");
                 } else {
                     bidError.setText("Bid not added");
                 }
-
+                
             }
         } catch (Exception e) {
             bidError.setText("Some Error was made");
         }
     }
-
+    
     public void find(ActionEvent event) {
         for (int i = 0; i < Config.Garages.size(); i++) {
             if (find_data.getText().equals(Config.Garages.get(i).getName())) {
@@ -106,104 +106,107 @@ public class AuctionController implements Initializable {
             }
         }
     }
-
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         if (!Config.Active) {
             Config.Active = true;
             Config.Auctions = Config.Auctions + 1;
-
+            
             bidInfo.setText("Auction is Active");
             timer = new Timer();
             timer.schedule(new printSeconds(), 0, 1000);
-
+            
             // new java.util.Timer().schedule(
             // new java.util.TimerTask() {
-            // @Override
-            // public void run() {
-            // System.out.println("Marek");
-            // }
-            // },
-            // 35000);
-        }
-
-        // !! Lambda
-        // Lambda vyrazy
-        Config.Garages.forEach((garage) -> {
-                garageList.getItems().add(garage.getName());
-            // garageList.getItems().add(garage.getName());
-        });
-
-        // !! Lambda
-        // Lambda vyrazy
-        Config.SpecialGarages.forEach((garage) -> {
-                garageList.getItems().add(garage.getName());
-        });
-        // for (int i = 0; i < Config.Garages.size(); i++) {
-        // garageList.getItems().add(Config.Garages.get(i).getName());
-        // }
-        // for (int i = 0; i < Config.SpecialGarages.size(); i++) {
-        // specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
-        // }
-
-    }
-
-    // !! Thread
-    class runThread extends Thread {
-        public void run() {
-            // Print seconds
-            System.out.println(second);
-
-            Config.time_number = Integer.toString(second);
-            secondsShow.setText(Config.time_number);
-
-            second--;
-
-            System.out.println(Config.Active);
-
-            // Stop timer
-            if (second == 0) {
-                // Exception -- mimoriadne osetrenie
-                try {
-                    CloseAuction();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                // @Override
+                // public void run() {
+                    // System.out.println("Marek");
+                    // }
+                    // },
+                    // 35000);
                 }
+                
+                // !! Lambda
+                // Lambda vyrazy
+                Config.Garages.forEach((garage) -> {
+                    garageList.getItems().add(garage.getName());
+                    // garageList.getItems().add(garage.getName());
+                });
+                
+                // !! Lambda
+                // Lambda vyrazy
+                Config.SpecialGarages.forEach((garage) -> {
+                    garageList.getItems().add(garage.getName());
+                });
+                // for (int i = 0; i < Config.Garages.size(); i++) {
+                    // garageList.getItems().add(Config.Garages.get(i).getName());
+                    // }
+                    // for (int i = 0; i < Config.SpecialGarages.size(); i++) {
+                        // specialgaragesList.getItems().add(Config.SpecialGarages.get(i).getName());
+                        // }
+                        
+                    }
+                    
+                    // !! Thread
+                    class runThread extends Thread {
+                        public void run() {
+                            // Print seconds
+                            System.out.println(second);
+                            
+                            Config.time_number = Integer.toString(second);
+                            secondsShow.setText(Config.time_number);
+                            
+                            second--;
+                            
+                            System.out.println(Config.Active);
+                            
+                            // Stop timer
+                            if (second == 0) {
+                                // Exception -- mimoriadne osetrenie
+                                try {
+                                    CloseAuction();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                
+                                timer.cancel();
+                            }
+                        }
+                    }
+                    
+                    // Print seconds
+                    class printSeconds extends TimerTask {
+                        public void run() {
+                            runThread thread = new runThread();
+                            thread.start();
+                        }
+                    }
+                    
+                    // Switch to Dashboard
+                    public void switchToCallerDashboard() throws Exception {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage window = (Stage) switchToDashboard.getScene().getWindow();
+                        window.setScene(new Scene(root));
+                    }
+                    
+                    // Close Auction
+                    public void CloseAuction() throws Exception {
+                        Config.Active = false;
+                        bidInfo.setText("Auction was closed");
+                        timer.cancel();
+                        
+                        Config.Garages.clear();
+                        Config.SpecialGarages.clear();
+                        Config.ActiveNumberOfStorages = 0;
+                        Config.ActiveNumberOfStoragesSpecial = 0;
 
-                timer.cancel();
-            }
-        }
-    }
-
-    // Print seconds
-    class printSeconds extends TimerTask {
-        public void run() {
-            runThread thread = new runThread();
-            thread.start();
-        }
-    }
-
-    // Switch to Dashboard
-    public void switchToCallerDashboard() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/caller_dashboard.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Stage window = (Stage) switchToDashboard.getScene().getWindow();
-        window.setScene(new Scene(root));
-    }
-
-    // Close Auction
-    public void CloseAuction() throws Exception {
-        Config.Active = false;
-        bidInfo.setText("Auction was closed");
-        timer.cancel();
-
-        Config.Garages.clear();
-        Config.SpecialGarages.clear();
-        
-        //!!RTTI
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction_closed.fxml"));
-        Parent root = (Parent) fxmlLoader.load();
-        Stage window = (Stage) closeAuction.getScene().getWindow();
-        window.setScene(new Scene(root));
-    }
-}
+                        //!!RTTI
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/auction_closed.fxml"));
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage window = (Stage) closeAuction.getScene().getWindow();
+                        window.setScene(new Scene(root));
+                    }
+                }
+                

@@ -44,12 +44,14 @@ public class Being {
         Garages.add(entryGarage);
     }
 
-    public String printList() {
+    public void printList() {
         String text = "";
-        for (Garage loopItem : Garages) {
-            text = text + loopItem.getName() + "\n";
-        }
 
+        Garages.forEach((garage) -> extracted(text, garage));
+    }
+
+    private String extracted(String text, Garage garage) {
+        text = text + garage.getName() + "\n";
         return text;
     }
 

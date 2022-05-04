@@ -11,7 +11,7 @@ public class Storage implements implements_get, implements_set, StorageBase  {
     /**
      * Main 
      */
-    //!! vhniezdene triedy
+    //!! vhniezdene triedy  
     public static class main {
         protected static String Name; // Name of storage
         protected static String Description; // Description of Storage
