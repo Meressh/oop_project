@@ -31,19 +31,25 @@ public class AddUserController {
     @FXML
     private Button loginCaller;
 
+    //!! Try catch exception
+    class PrintError extends Exception {
+        public PrintError(String s) {
+            
+            super(s);
+        }
+    }
     //Create User
     public void createUser(ActionEvent event) {
         // Try catch exception
         try {
             // Add VIP User
-            //!!prerobit exception na vlastne 
             if (temp_user_name.getText().isEmpty()) {
-                throw new Exception("Please enter a valid Name");
+                throw new PrintError("Please enter a valid Name");
                 // userAddError.setText();
             }
             
             if (temp_user_id.getText().isEmpty()) {
-                throw new Exception("Please enter a valid ID");
+                throw new PrintError("Please enter a valid ID");
             }
             
             if (!temp_user_id.getText().isEmpty() && !temp_user_name.getText().isEmpty()) {
@@ -54,6 +60,7 @@ public class AddUserController {
 
                     if(Config.Users.get(i).getID().equals(temp_user_id.getText()) ){
                         userAddError.setText("ID of user already exists");
+
                         boolean1 = false;
                     }
 
@@ -62,12 +69,12 @@ public class AddUserController {
                     Config.createUser(temp_user_id.getText(), temp_user_name.getText(), user_psc.getText(),
                             user_address.getText(), user_region.getText(), user_state.getText());
 
-                    userAddError.setText("User created");
+                    throw new PrintError("User created");
                 }
 
             }
         }
-        catch (Exception e) {
+        catch (PrintError e) {
             userAddError.setText(e.getMessage());
         }
     }

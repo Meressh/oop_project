@@ -82,4 +82,16 @@ public class Caller extends Being implements CallerFunctions {
         return special_garage;
 
     }
+
+    @Override
+    public User AddUser() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public VIPUser AddVIPUser() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
