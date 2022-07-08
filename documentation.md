@@ -5,7 +5,7 @@
 Java Project || Anglicka E-Aukcia zabudnutých skladov || FIIT STU || Streda 16:00 || Skupina 5
 
 V projekte je použitý MVC model -> Model, View, Controller. Na vytvorenie grafického rozhrania GUI využívame Scene builder.
-Tymto sposobom sme oddelili aplikacnu logiku od pouzivatelskeho rozhrania.
+Tymto spôsobom sme oddelili aplikačnú logiku od pouźivateľśkého rozhrania.
 
 ##### Agregácia Address je použítá pri Classe Being, konkrétne to je súbor Being.java.
 
@@ -17,7 +17,7 @@ Tymto sposobom sme oddelili aplikacnu logiku od pouzivatelskeho rozhrania.
 
 Štruktúra programu je rozdelená do viacerých priečinkov.
 
-**Aplikácia začína s prihlásením Callera (ten, ktorý všetko riadi, niečo ako Admin). Spravené je pridavanie Userov s chybovimi hláškami ak Caller zadal nesprávne hodnoty napríklad zabudol napísať meno poúživateľa. Takto podobne je vytvorený Aj VIPUser, Garages, SpecialGarages. Taktiež tieto data sú zobrazené v zozname pre lepšiu orientáciu. Je vytovorená aj možnosť Aukcie, Caller napíše ID poúživateľa a názov Garages a cenu, za ktorú chce tento produkt zaplatiť. Ak poúživateľ neexistuje alebo Hľadaný Garage neexistuje alebo cena je menšia ako je minimálna cena Garage, tak vráti chybovú hlášku Bid was not added. Aukcia taktiež obsahuje Timer, ktorý ukončí aukciu.**
+**Aplikácia začína s prihlásením Callera (ten, ktorý všetko riadi, niečo ako Admin). Spravené je pridavanie Userov s chybovými hláškami ak Caller zadal nesprávne hodnoty napríklad zabudol napísať meno poúživateľa. Takto podobne je vytvorený Aj VIPUser, Garages, SpecialGarages. Taktiež tieto data sú zobrazené v zozname pre lepšiu orientáciu. Je vytovorená aj možnosť Aukcie, Caller napíše ID poúživateľa a názov Garages a cenu, za ktorú chce tento produkt zaplatiť. Ak poúživateľ neexistuje alebo Hľadaný Garage neexistuje alebo cena je menšia ako je minimálna cena Garage, tak vráti chybovú hlášku Bid was not added. Aukcia taktiež obsahuje Timer, ktorý ukončí aukciu.**
 
 ##### Ďalšie kritéria
 
